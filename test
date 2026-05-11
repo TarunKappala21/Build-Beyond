@@ -1,0 +1,257 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const path = require("path");
+const { spawn } = require("child_process");
+
+const ROOT = __dirname;
+const BACKEND_DIR = path.join(ROOT, "backend");
+const FRONTEND_DIR = path.join(ROOT, "frontend");
+
+const BACKEND_JUNIT = path.join(BACKEND_DIR, "test-results", "junit.xml");
+const FRONTEND_JUNIT = path.join(FRONTEND_DIR, "test-results", "junit.xml");
+
+const ANSI = {
+  reset: "\x1b[0m",
+  red: "\x1b[31m",
+  green: "\x1b[32m",
+  yellow: "\x1b[33m",
+  cyan: "\x1b[36m",
+};
+
+const colorize = (text, color) => `${color}${text}${ANSI.reset}`;
+
+const runCommand = ({ cmd, args, cwd, label }) =>
+  new Promise((resolve) => {
+    console.log(`\n[run] ${label}`);
+    console.log(`      ${cmd} ${args.join(" ")}`);
+
+    const child = spawn(cmd, args, {
+      cwd,
+      stdio: "inherit",
+      shell: process.platform === "win32",
+    });
+
+    child.on("exit", (code) => {
+      resolve({ ok: code === 0, code: code ?? 1 });
+    });
+  });
+
+const parseAttributes = (text) => {
+  const attrs = {};
+  const regex = /(\w+)="([^"]*)"/g;
+  let match;
+  while ((match = regex.exec(text)) !== null) {
+    attrs[match[1]] = match[2];
+  }
+  return attrs;
+};
+
+const decodeXml = (value) =>
+  String(value || "")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+
+const parseJunitCases = (xml) => {
+  const cases = [];
+  const regex = /<testcase\b([^>]*?)(?:\/>|>([\s\S]*?)<\/testcase>)/g;
+
+  let match;
+  while ((match = regex.exec(xml)) !== null) {
+    const attrs = parseAttributes(match[1] || "");
+    const body = match[2] || "";
+
+    const failureMatch = body.match(/<failure\b[^>]*>([\s\S]*?)<\/failure>/);
+    const errorMatch = body.match(/<error\b[^>]*>([\s\S]*?)<\/error>/);
+    const skippedMatch = body.match(/<skipped\b[^>]*\/?>(?:[\s\S]*?<\/skipped>)?/);
+
+    let status = "passed";
+    let details = "";
+
+    if (failureMatch) {
+      status = "failed";
+      details = decodeXml(failureMatch[1].trim());
+    } else if (errorMatch) {
+      status = "error";
+      details = decodeXml(errorMatch[1].trim());
+    } else if (skippedMatch) {
+      status = "skipped";
+    }
+
+    cases.push({
+      classname: attrs.classname || "",
+      name: attrs.name || "(unnamed)",
+      time: Number(attrs.time || 0),
+      status,
+      details,
+    });
+  }
+
+  return cases;
+};
+
+const readCasesFromJunit = (filePath) => {
+  if (!fs.existsSync(filePath)) {
+    return [];
+  }
+  const xml = fs.readFileSync(filePath, "utf8");
+  return parseJunitCases(xml);
+};
+
+const summarizeCases = (cases) => {
+  const total = cases.length;
+  const failed = cases.filter((t) => t.status === "failed" || t.status === "error").length;
+  const skipped = cases.filter((t) => t.status === "skipped").length;
+  const passed = Math.max(total - failed - skipped, 0);
+  return { total, passed, failed, skipped };
+};
+
+const statusWord = (status) => {
+  if (status === "passed") return "PASS";
+  if (status === "skipped") return "SKIP";
+  return "FAIL";
+};
+
+const coloredStatusWord = (status) => {
+  const word = statusWord(status);
+  if (status === "passed") return colorize(word, ANSI.green);
+  if (status === "skipped") return colorize(word, ANSI.yellow);
+  return colorize(word, ANSI.red);
+};
+
+const printCaseStatus = (scope, item) => {
+  const suite = item.classname ? `${item.classname} :: ` : "";
+  console.log(
+    `[${scope}] ${coloredStatusWord(item.status)} ${suite}${item.name} (${item.time.toFixed(3)}s)`,
+  );
+
+  if ((item.status === "failed" || item.status === "error") && item.details) {
+    const firstLine = item.details.split(/\r?\n/).find(Boolean);
+    if (firstLine) {
+      console.log(`         -> ${colorize(firstLine, ANSI.red)}`);
+    }
+  }
+};
+
+const run = async () => {
+  console.log(colorize("Local CI-style test runner", ANSI.cyan));
+  console.log("Runs backend checks + backend tests + frontend build + frontend tests");
+
+  const steps = [
+    {
+      label: "Backend syntax check",
+      cmd: "node",
+      args: ["--check", "app.js"],
+      cwd: BACKEND_DIR,
+      group: "backend-checks",
+    },
+    {
+      label: "Backend SMTP syntax check",
+      cmd: "node",
+      args: ["--check", "utils/emailService.js"],
+      cwd: BACKEND_DIR,
+      group: "backend-checks",
+    },
+    {
+      label: "Backend SMTP health script syntax check",
+      cmd: "node",
+      args: ["--check", "scripts/smtp-health-check.js"],
+      cwd: BACKEND_DIR,
+      group: "backend-checks",
+    },
+    {
+      label: "Backend tests (JUnit)",
+      cmd: "npm",
+      args: ["run", "test:junit"],
+      cwd: BACKEND_DIR,
+      group: "backend-tests",
+    },
+    {
+      label: "Frontend build",
+      cmd: "npm",
+      args: ["run", "build"],
+      cwd: FRONTEND_DIR,
+      group: "frontend-checks",
+    },
+    {
+      label: "Frontend tests (JUnit)",
+      cmd: "npm",
+      args: ["run", "test:junit"],
+      cwd: FRONTEND_DIR,
+      group: "frontend-tests",
+    },
+  ];
+
+  const results = [];
+  for (const step of steps) {
+    // Ensure test result directories exist before junit runs.
+    if (step.group === "backend-tests") {
+      fs.mkdirSync(path.join(BACKEND_DIR, "test-results"), { recursive: true });
+    }
+    if (step.group === "frontend-tests") {
+      fs.mkdirSync(path.join(FRONTEND_DIR, "test-results"), { recursive: true });
+    }
+
+    const result = await runCommand(step);
+    results.push({ ...step, ...result });
+  }
+
+  const backendCases = readCasesFromJunit(BACKEND_JUNIT);
+  const frontendCases = readCasesFromJunit(FRONTEND_JUNIT);
+
+  console.log("\nBackend test cases:");
+  if (!backendCases.length) {
+    console.log("[backend] No test cases found in JUnit output");
+  }
+  backendCases.forEach((testCase) => printCaseStatus("backend", testCase));
+
+  console.log("\nFrontend test cases:");
+  if (!frontendCases.length) {
+    console.log("[frontend] No test cases found in JUnit output");
+  }
+  frontendCases.forEach((testCase) => printCaseStatus("frontend", testCase));
+
+  const backendSummary = summarizeCases(backendCases);
+  const frontendSummary = summarizeCases(frontendCases);
+
+  const allCases = [...backendCases, ...frontendCases];
+  const totalSummary = summarizeCases(allCases);
+
+  const stepFailures = results.filter((r) => !r.ok);
+
+  console.log("\nStep status:");
+  results.forEach((step) => {
+    const state = step.ok
+      ? colorize("OK", ANSI.green)
+      : colorize("FAIL", ANSI.red);
+    console.log(
+      `[${state}] ${step.label} (exit=${step.code})`,
+    );
+  });
+
+  console.log("\nTest summary:");
+  console.log(
+    `Backend  -> total=${backendSummary.total}, passed=${colorize(String(backendSummary.passed), ANSI.green)}, failed=${backendSummary.failed > 0 ? colorize(String(backendSummary.failed), ANSI.red) : backendSummary.failed}, skipped=${backendSummary.skipped}`,
+  );
+  console.log(
+    `Frontend -> total=${frontendSummary.total}, passed=${colorize(String(frontendSummary.passed), ANSI.green)}, failed=${frontendSummary.failed > 0 ? colorize(String(frontendSummary.failed), ANSI.red) : frontendSummary.failed}, skipped=${frontendSummary.skipped}`,
+  );
+  console.log(
+    `Combined -> total=${totalSummary.total}, passed=${colorize(String(totalSummary.passed), ANSI.green)}, failed=${totalSummary.failed > 0 ? colorize(String(totalSummary.failed), ANSI.red) : totalSummary.failed}, skipped=${totalSummary.skipped}`,
+  );
+
+  if (stepFailures.length || totalSummary.failed > 0) {
+    console.log(`\nOverall status: ${colorize("FAIL", ANSI.red)}`);
+    process.exit(1);
+  }
+
+  console.log(`\nOverall status: ${colorize("PASS", ANSI.green)}`);
+};
+
+run().catch((error) => {
+  console.error("Local CI test runner failed:", error.message);
+  process.exit(1);
+});

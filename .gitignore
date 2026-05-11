@@ -1,0 +1,32 @@
+﻿# Dependencies
+node_modules/
+**/node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Environment Variables (NEVER COMMIT THESE!)
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+**/.env
+
+# Build outputs
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Uploads (if you want to exclude uploaded files)
+backend/uploads/
