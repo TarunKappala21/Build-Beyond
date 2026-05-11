@@ -2,7 +2,7 @@
 
 Build and Beyond is a comprehensive web platform that connects customers with construction companies and specialized workers (Architects and Interior Designers). It supports tendering, bidding, worker hiring, secure chat, and project management with real-time updates.
 
-## 🚀 Features
+##  Features
 
 - **Customer Tendering**: Customers can post construction projects and design requests
 - **Company Bidding**: Construction companies can bid on projects
@@ -12,7 +12,7 @@ Build and Beyond is a comprehensive web platform that connects customers with co
 - **Admin Dashboard**: Complete user and project moderation system
 - **Reviews & Ratings**: Users can review and rate services
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 - **Database**: MongoDB
 - **Backend**: Node.js, Express.js, Socket.io
@@ -20,7 +20,7 @@ Build and Beyond is a comprehensive web platform that connects customers with co
 - **Authentication**: JWT
 - **File Upload**: Multer
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before you begin, ensure you have the following installed:
 - **Node.js** (v16+ recommended)
@@ -28,7 +28,7 @@ Before you begin, ensure you have the following installed:
 - **MongoDB** (local installation or MongoDB Atlas account)
 - **nodemon** (optional, for backend development)
 
-## 📦 Installation & Setup
+##  Installation & Setup
 
 ### 1. Clone the Repository
 
@@ -55,7 +55,7 @@ cd frontend
 npm install
 ```
 
-## 🚀 Running the Application
+##  Running the Application
 
 ### Running the Backend
 
@@ -85,7 +85,7 @@ The frontend development server will start on `http://localhost:5173`
 
 Open your browser and navigate to `http://localhost:5173` to view the application.
 
-## 🏗️ Building for Production
+##  Building for Production
 
 ### Frontend Production Build
 
@@ -124,7 +124,7 @@ FDFED-React-App/
     └── vite.config.js
 ```
 
-## 🔑 User Roles
+##  User Roles
 
 The platform supports four user roles:
 
@@ -159,14 +159,14 @@ cd backend
 node migrations/addMilestoneFields.js
 ```
 
-## ⚠️ Important Notes
+##  Important Notes
 
 - Ensure MongoDB is running before starting the backend server
 - Make sure both backend and frontend are running simultaneously for full functionality
 - The chat feature requires Socket.io connection between frontend and backend
 - File uploads require proper Cloudinary configuration in the backend `.env` file
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please feel free to submit issues and pull requests.
 
@@ -176,15 +176,12 @@ Contributions are welcome! Please feel free to submit issues and pull requests.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 👥 Team
+##  Team
 
-- **Lead**: Krishnakumar S — smkrishnakumar1506@gmail.com
-- **Member**: Sai Manideep Putchanutala — isaimanideep.p@gmail.com
 - **Member**: K Prudhvi Sai Ram — prudhvi16321@gmail.com
-- **Member**: Yeshwanth K — kadiamyeshwanth@gmail.com
-- **Member**: Polu Avinash Reddy — avinashreddypolu27@gmail.com
+- **Member**: Tarun Kappala — tarunkappala5657@gmail.com
 
-## 📝 License
+##  License
 
 This project is open source and available for educational purposes.
 
