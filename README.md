@@ -1,219 +1,193 @@
 # Build and Beyond
 
-Build and Beyond is a full‑stack platform that connects customers with construction companies and specialized workers (Architects and Interior Designers). It supports project posting, bidding, hiring, milestone tracking, real‑time chat, reviews, and admin moderation.
+Build and Beyond is a comprehensive web platform that connects customers with construction companies and specialized workers (Architects and Interior Designers). It supports tendering, bidding, worker hiring, secure chat, and project management with real-time updates.
 
-## Features (from the codebase)
+## 🚀 Features
 
-- **Role‑based dashboards** for Customer, Company, Worker, and Admin
-- **Project posting & bidding** for construction and design requests
-- **Worker hiring** with offers/accept/decline flows
-- **Milestones** with approvals, revisions, and completion updates
-- **Reviews & ratings** for completed projects
-- **Complaints & admin replies**
-- **Admin verification** for companies/workers and moderation controls
-- **File uploads** (documents, images, resumes, project updates)
+- **Customer Tendering**: Customers can post construction projects and design requests
+- **Company Bidding**: Construction companies can bid on projects
+- **Worker Hiring**: Direct hiring of Architects and Interior Designers
+- **Secure Chat**: Real-time messaging between users after deals are accepted
+- **Project Management**: Project updates with milestone tracking and photo uploads
+- **Admin Dashboard**: Complete user and project moderation system
+- **Reviews & Ratings**: Users can review and rate services
 
-## Tech Stack
+## 🛠️ Technology Stack
 
-### Backend
-- Node.js + Express
-- MongoDB + Mongoose
-- JWT auth + cookies
-- Multer + Cloudinary (uploads)
-- EJS (server view engine)
+- **Database**: MongoDB
+- **Backend**: Node.js, Express.js, Socket.io
+- **Frontend**: React, Vite, Redux Toolkit
+- **Authentication**: JWT
+- **File Upload**: Multer
 
-### Frontend
-- React 19 + Vite
-- React Router 7
-- Redux Toolkit
-- Axios
+## 📋 Prerequisites
 
-## Requirements
+Before you begin, ensure you have the following installed:
+- **Node.js** (v16+ recommended)
+- **npm** (comes with Node.js)
+- **MongoDB** (local installation or MongoDB Atlas account)
+- **nodemon** (optional, for backend development)
 
-- Node.js (v16+ recommended)
-- npm
-- MongoDB (local or Atlas)
+## 📦 Installation & Setup
 
-## Installation
+### 1. Clone the Repository
 
-### Backend
-From [backend/](backend/):
+```bash
+git clone https://github.com/kadiamyeshwanth/FDFED-React-App.git
+cd FDFED-React-App
+```
 
-- Install dependencies: `npm install`
-- Start server: `node app.js`
+### 2. Backend Setup
 
-The API runs on http://localhost:3000
+Navigate to the backend directory and install dependencies:
 
-### Frontend
-From [frontend/](frontend/):
+```bash
+cd backend
+npm install
+```
 
-- Install dependencies: `npm install`
-- Start dev server: `npm run dev`
+### 3. Frontend Setup
 
-The UI runs on http://localhost:5173
+Open a new terminal, navigate to the frontend directory, and install dependencies:
 
-## Configuration
+```bash
+cd frontend
+npm install
+```
 
-Backend configuration is currently stored in [backend/config/constants.js](backend/config/constants.js). Update these values before running in production:
+## 🚀 Running the Application
 
-- `PORT`
-- `MONGO_URI`
-- `JWT_SECRET`
-- `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`
-- `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `ADMIN_PASSKEY`
+### Running the Backend
 
-> Recommendation: move secrets to environment variables and keep them out of version control.
+From the `backend/` directory:
 
-## Key Routes (high‑level)
+**Option 1: Using nodemon (recommended for development)**
+```bash
+nodemon app.js
+```
 
-### Auth
-- `/api/signup` (multipart form with documents)
-- `/api/login`
-- `/api/logout`
-- `/api/session`
+**Option 2: Using node**
+```bash
+node app.js
+```
 
-### Customer
-- `/api/customer/profile`
-- `/api/customer/favorites` (GET/POST/DELETE)
-- `/api/customer/review`
-- `/api/customer/review-status/:projectType/:projectId`
+The backend server will start on `http://localhost:4000`
 
-### Company
-- `/api/companydashboard`
-- `/api/companybids`
-- `/api/companyrevenue`
-- `/api/submit-bid`
-- `/api/company/submit-proposal`
+### Running the Frontend
 
-### Worker
-- `/api/worker/dashboard`
-- `/api/worker/jobs`
-- `/api/worker/ongoing-projects`
-- `/api/worker/submit-milestone`
-- `/api/worker/review`
+From the `frontend/` directory:
 
-### Projects
-- `/api/projects`
-- `/api/projects/:id`
-- `/api/customer/submit-bid`
-- `/api/customer/accept-bid`
-- `/api/customer/decline-bid`
+```bash
+npm run dev
+```
 
-### Admin
-- `/api/admin/login`
-- `/api/admin/verify-session`
-- `/api/admindashboard`
-- `/api/admin/revenue`
-- `/api/admin/verify-company/:id`
-- `/api/admin/verify-worker/:id`
+The frontend development server will start on `http://localhost:5173`
 
-### Chat & Complaints
-- `/api/chat/:roomId` (protected)
-- `/api/complaints/*`
+Open your browser and navigate to `http://localhost:5173` to view the application.
 
+## 🏗️ Building for Production
 
+### Frontend Production Build
 
-## File Uploads
+```bash
+cd frontend
+npm run build
+```
 
-- Uploads are handled via Multer and stored via Cloudinary.
-- Static access is exposed at `/uploads` for locally stored files.
+This creates an optimized production build in the `frontend/dist/` directory.
 
-## Project Structure
+To preview the production build locally:
+```bash
+npm run preview
+```
+
+## 📁 Project Structure
 
 ```
 FDFED-React-App/
 ├── backend/
-│   ├── app.js
-│   ├── config/
-│   ├── controllers/
-│   ├── middlewares/
-│   ├── migrations/
-│   ├── models/
-│   ├── routes/
-│   └── utils/
+│   ├── app.js                 # Main application entry point
+│   ├── config/                # Configuration files (DB, constants)
+│   ├── controllers/           # Route controllers
+│   ├── middlewares/           # Authentication & upload middlewares
+│   ├── models/                # Database models
+│   ├── routes/                # API routes
+│   └── utils/                 # Helper utilities
+│
 └── frontend/
     ├── src/
-    │   ├── components/
-    │   ├── context/
-    │   ├── Pages/
-    │   └── store/
+    │   ├── components/        # Reusable components
+    │   ├── context/           # React context providers
+    │   ├── Pages/             # Page components (Admin, Customer, Company, Worker)
+    │   └── store/             # Redux store and slices
     ├── index.html
     └── vite.config.js
 ```
 
-## Migration
+## 🔑 User Roles
 
-For existing data, run the milestone migration:
+The platform supports four user roles:
 
-- `node migrations/addMilestoneFields.js`
+1. **Admin**: Platform moderation and oversight
+2. **Customer**: Post projects and hire workers
+3. **Company**: Bid on construction projects
+4. **Worker**: Apply for jobs (Architects/Interior Designers)
 
-## Notes
+## 🌐 API Endpoints
 
-- Make sure MongoDB is running before starting the backend.
-- Run both backend and frontend for a fully working app.
-- CORS are configured for the Vite dev server (5173).
+The backend provides RESTful API endpoints for:
+- Authentication (`/api/auth`)
+- Customer operations (`/api/customer`)
+- Company operations (`/api/company`)
+- Worker operations (`/api/worker`)
+- Admin operations (`/api/admin`)
+- Chat functionality (`/api/chat`)
+- Reviews and ratings (`/api/reviews`)
 
-## Docker Setup
+## 🔧 Configuration
 
-The repository now includes container support for both apps:
+### Frontend API Configuration
 
-- Backend image: [backend/Dockerfile](backend/Dockerfile)
-- Frontend image: [frontend/Dockerfile](frontend/Dockerfile)
-- Compose orchestration: [docker-compose.yml](docker-compose.yml)
+Update the API base URL in the frontend if needed. The default configuration connects to `http://localhost:4000`.
 
-### Run With Containers
+### Database Migration
 
-From the project root:
+If you have existing data, run the migration script for milestone fields:
 
-- Build and start: `docker compose up --build`
-- Stop and remove: `docker compose down`
+```bash
+cd backend
+node migrations/addMilestoneFields.js
+```
 
-### Access URLs
+## ⚠️ Important Notes
 
-- Frontend: http://localhost:5174
-- Backend API: http://localhost:3001
+- Ensure MongoDB is running before starting the backend server
+- Make sure both backend and frontend are running simultaneously for full functionality
+- The chat feature requires Socket.io connection between frontend and backend
+- File uploads require proper Cloudinary configuration in the backend `.env` file
 
-These defaults avoid conflicts with local dev servers that often use 5173/3000.
+## 🤝 Contributing
 
-### Optional Port Overrides
+Contributions are welcome! Please feel free to submit issues and pull requests.
 
-You can override host ports without editing compose:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-- `BACKEND_HOST_PORT` (default `3001`)
-- `FRONTEND_HOST_PORT` (default `5174`)
+## 👥 Team
 
-Example:
+- **Lead**: Krishnakumar S — smkrishnakumar1506@gmail.com
+- **Member**: Sai Manideep Putchanutala — isaimanideep.p@gmail.com
+- **Member**: K Prudhvi Sai Ram — prudhvi16321@gmail.com
+- **Member**: Yeshwanth K — kadiamyeshwanth@gmail.com
+- **Member**: Polu Avinash Reddy — avinashreddypolu27@gmail.com
 
-- `BACKEND_HOST_PORT=3000 FRONTEND_HOST_PORT=5173 docker compose up --build`
+## 📝 License
 
-## CI/CD Pipeline (GitHub Actions)
+This project is open source and available for educational purposes.
 
-This repository includes a CI/CD workflow at [.github/workflows/ci-cd.yml](.github/workflows/ci-cd.yml).
+---
 
-### What It Does
-
-- Runs backend CI on every push/pull request:
-    - Install dependencies
-    - Syntax checks for backend entry and SMTP utilities
-- Runs frontend CI on every push/pull request:
-    - Install dependencies
-    - Production build check
-- On `main` branch pushes (after CI passes):
-    - Triggers backend deploy on Render via deploy hook
-    - Triggers frontend deploy on Vercel via deploy hook
-
-### Required GitHub Repository Secrets
-
-Add these in GitHub repo settings under Secrets and variables > Actions:
-
-- `RENDER_DEPLOY_HOOK_URL`
-- `VERCEL_DEPLOY_HOOK_URL`
-- `BACKEND_HEALTHCHECK_URL` (optional; defaults to `https://build-beyond.onrender.com/health`)
-- `FRONTEND_HEALTHCHECK_URL` (optional; recommended if your Vercel deploy hook URL does not expose your production hostname)
-
-If either deploy hook secret is missing, the deploy job fails with a clear message. The healthcheck URL can be omitted.
-
-### Service Linking
-
-- Frontend calls backend through Docker network using `http://backend:3000`.
-- This is configured via `VITE_BACKEND_TARGET` in [docker-compose.yml](docker-compose.yml) and consumed in [frontend/vite.config.js](frontend/vite.config.js).
+**Happy Building! 🏗️**
