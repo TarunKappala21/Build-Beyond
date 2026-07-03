@@ -1,0 +1,263 @@
+/* src/Pages/customer/components/Forms/ConstructionForm.css */
+
+* {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.constructionform-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  background-color: #f8fafc;
+  margin-bottom: 40px;
+}
+
+.constructionform-page-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.constructionform-page-title h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+.constructionform-underline {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, #facc15, #1e293b);
+  margin: 0 auto;
+}
+
+.constructionform-content-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.constructionform-verification-panel {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  position: sticky;
+  top: 16px;
+}
+
+.constructionform-verification-panel h3 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.constructionform-verification-list p {
+  margin: 8px 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.constructionform-main-content {
+  min-width: 0;
+}
+
+.constructionform-form-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.constructionform-form-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.constructionform-form-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #facc15;
+  border-radius: 2px;
+}
+
+.constructionform-form-group {
+  margin-bottom: 15px;
+}
+
+.constructionform-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.constructionform-required:after {
+  content: "*";
+  color: #facc15;
+  margin-left: 4px;
+}
+
+.constructionform-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #475569;
+}
+
+.constructionform-form-group input,
+.constructionform-form-group textarea,
+.constructionform-form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1e293b;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.constructionform-form-group input:focus,
+.constructionform-form-group textarea:focus,
+.constructionform-form-group select:focus {
+  outline: none;
+  border-color: #facc15;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+}
+
+.constructionform-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.constructionform-error-text {
+  color: #ef4444;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.constructionform-floor-container {
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  position: relative;
+}
+
+.constructionform-floor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.constructionform-floor-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.constructionform-btn {
+  padding: 12px 25px;
+  background-color: #facc15;
+  color: #1e293b;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.constructionform-btn:hover {
+  background-color: #eab308;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.constructionform-btn-remove {
+  background-color: #ef4444;
+  color: white;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  box-shadow: none;
+}
+
+.constructionform-btn-remove:hover {
+  background-color: #dc2626;
+  transform: translateY(0);
+}
+
+.constructionform-image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  margin-top: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.constructionform-submit-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.constructionform-submit-btn {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  background-color: #1e293b;
+  color: white;
+}
+
+.constructionform-submit-btn:hover {
+  background-color: #0f172a;
+}
+
+.constructionform-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .constructionform-container {
+    padding: 20px;
+  }
+
+  .constructionform-verification-panel {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .constructionform-content-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .constructionform-page-title h1 {
+    font-size: 2rem;
+  }
+
+  .constructionform-form-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .constructionform-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

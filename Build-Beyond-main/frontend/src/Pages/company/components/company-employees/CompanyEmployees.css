@@ -1,0 +1,210 @@
+/* ROOT VARIABLES */
+:root {
+  --primary-accent: #004D7A;
+  --primary-accent-hover: #003355;
+  --background-light: #F8F9FA;
+  --content-light: #FFFFFF;
+  --text-primary: #212529;
+  --text-secondary: #6C757D;
+  --border-light: #D1D5DB;
+  --card-radius: 8px;
+  --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --button-secondary-bg: #E9ECEF;
+  --status-success-bg: #D4EDDA;
+  --status-success-text: #155724;
+  --status-warning-bg: #FFF3CD;
+  --status-warning-text: #856404;
+  --status-danger-bg: #f8d7da;
+  --status-danger-text: #721c24;
+  --transition: all 0.3s ease;
+}
+
+/* Container */
+.comEmp_container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 0 2rem;
+}
+
+/* Page Header */
+.comEmp_header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--primary-accent);
+  padding-bottom: 1rem;
+}
+
+/* Grid */
+.comEmp_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2rem;
+}
+
+/* Cards */
+.comEmp_card {
+  background: var(--content-light);
+  border: 1px solid var(--border-light);
+  border-radius: var(--card-radius);
+  box-shadow: var(--soft-shadow);
+  transition: var(--transition);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.comEmp_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary-accent);
+}
+
+/* Card Header */
+.comEmp_cardHeader {
+  display: flex;
+  align-items: center;
+  padding: 1.75rem;
+  background: var(--primary-accent);
+  color: var(--content-light);
+}
+
+.comEmp_profileImg {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--content-light);
+  margin-right: 1.5rem;
+  transition: var(--transition);
+}
+
+.comEmp_profileImg:hover {
+  transform: scale(1.05);
+}
+
+.comEmp_headerInfo h3 {
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.comEmp_title {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+/* Body */
+.comEmp_body {
+  padding: 1.75rem;
+}
+
+.comEmp_detailItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.comEmp_detailItem i {
+  width: 20px;
+  margin-right: 10px;
+  color: var(--primary-accent);
+}
+
+.comEmp_detailItem span {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Availability */
+.comEmp_availability {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.available {
+  background: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.busy {
+  background: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
+
+.unavailable {
+  background: var(--status-danger-bg);
+  color: var(--status-danger-text);
+}
+
+/* Footer */
+.comEmp_footer {
+  padding: 1.25rem 1.75rem;
+  background: var(--button-secondary-bg);
+  text-align: center;
+  border-top: 1px solid var(--border-light);
+}
+
+.comEmp_btnChat {
+  background: var(--primary-accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.comEmp_btnChat:hover {
+  background: var(--primary-accent-hover);
+  transform: translateY(-2px);
+}
+
+.comEmp_btnChat.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Empty State */
+.comEmp_noEmployees {
+  text-align: center;
+  padding: 3rem;
+  background: var(--content-light);
+  border-radius: var(--card-radius);
+  box-shadow: var(--soft-shadow);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .comEmp_cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .comEmp_profileImg {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .comEmp_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comEmp_profileImg {
+    width: 70px;
+    height: 70px;
+  }
+}

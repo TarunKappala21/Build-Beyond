@@ -1,0 +1,288 @@
+/* ---------- Container ---------- */
+.architect-form-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- Page Title ---------- */
+.architect-form-page-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.architect-form-page-title h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+.architect-form-underline {
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(to right, #facc15, #1e293b);
+  margin: 0 auto;
+}
+
+.architect-form-content-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.architect-form-verification-panel {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  position: sticky;
+  top: 16px;
+}
+
+.architect-form-verification-panel h3 {
+  margin: 0 0 10px 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.architect-form-verification-list p {
+  margin: 8px 0;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.architect-form-main-content {
+  min-width: 0;
+}
+
+/* ---------- Section ---------- */
+.architect-form-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.architect-form-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 20px;
+  position: relative;
+}
+.architect-form-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #facc15;
+  border-radius: 2px;
+}
+
+/* ---------- Grid & Form Group ---------- */
+.architect-form-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.architect-form-form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+.architect-form-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #475569;
+}
+.architect-form-form-group input,
+.architect-form-form-group select,
+.architect-form-form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1e293b;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+.architect-form-form-group input:focus,
+.architect-form-form-group select:focus,
+.architect-form-form-group textarea:focus {
+  outline: none;
+  border-color: #facc15;
+  box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.2);
+}
+.architect-form-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.architect-form-form-group select {
+  height: 48px;
+}
+
+/* ---------- File Upload ---------- */
+.architect-form-file-upload {
+  margin-top: 10px;
+}
+.architect-form-file-upload label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 30px 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.95rem;
+}
+.architect-form-file-upload label:hover {
+  background-color: #e2e8f0;
+  border-color: #facc15;
+}
+.architect-form-file-upload input {
+  display: none;
+}
+
+/* ---------- Previews ---------- */
+.architect-form-image-preview-container {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+.architect-form-image-preview {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 150px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.architect-form-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.architect-form-file-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(30, 41, 59, 0.8);
+  color: white;
+  padding: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.architect-form-remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.architect-form-remove-btn:hover {
+  background: #dc2626;
+}
+.architect-form-pdf-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f5f9;
+  color: #ef4444;
+  font-size: 0.9rem;
+}
+.architect-form-pdf-preview svg {
+  width: 40px;
+  height: 40px;
+  color: #ef4444;
+  margin-bottom: 5px;
+}
+
+/* ---------- Submit Button ---------- */
+.architect-form-btn-submit {
+  background-color: #facc15;
+  color: #1e293b;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.architect-form-btn-submit:hover {
+  background-color: #eab308;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.architect-form-btn-submit:disabled {
+  cursor: wait;
+  opacity: 0.75;
+  transform: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.architect-form-btn-submit:disabled:hover {
+  background-color: #facc15;
+}
+
+@media (max-width: 960px) {
+  .architect-form-verification-panel {
+    position: static;
+    margin-bottom: 20px;
+  }
+
+  .architect-form-content-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .architect-form-container {
+    padding: 20px;
+  }
+  .architect-form-page-title h1 {
+    font-size: 2rem;
+  }
+  .architect-form-section-title {
+    font-size: 1.3rem;
+  }
+  .architect-form-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Errors ---------- */
+.architect-form-error-message {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}

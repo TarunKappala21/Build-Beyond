@@ -1,0 +1,93 @@
+.application360-page {
+  background: linear-gradient(160deg, #eff6ff 0%, #ecfeff 100%);
+}
+
+.application360-summary-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.summary-card.red .summary-accent {
+  background: #ef4444;
+}
+
+.summary-card.rose .summary-accent {
+  background: #f43f5e;
+}
+
+.summary-card.emerald .summary-accent {
+  background: #059669;
+}
+
+.application360-inline-btn {
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.application360-wide-field {
+  grid-column: 1 / -1;
+}
+
+.application360-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  background: #dbeafe;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.application360-link:hover {
+  background: #bfdbfe;
+}
+
+.application360-skill-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.application360-skill-chip {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1e3a8a;
+  border: 1px solid #bfdbfe;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.error-state {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.error-state h2 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.error-state p {
+  margin: 0 0 16px;
+  color: #64748b;
+}
+
+@media (max-width: 1400px) {
+  .application360-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .application360-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

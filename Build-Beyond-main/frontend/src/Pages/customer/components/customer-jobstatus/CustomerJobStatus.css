@@ -1,0 +1,1714 @@
+/* src/Pages/customer/CustomerJobStatus.css */
+/* All class names prefixed with 'cjs-' to prevent global CSS conflicts */
+/* Theme: professional cool palette. Hover animations/transitions removed. */
+
+:root {
+  --cjs-bg: #eef3fb;
+  --cjs-surface: #ffffff;
+  --cjs-surface-soft: #f7fafd;
+  --cjs-text: #223070;
+  --cjs-muted: #64738a;
+  --cjs-border: #dbe3ef;
+  --cjs-primary: #24379a;
+  --cjs-primary-soft: #e7ebff;
+  --cjs-shadow: 0 14px 32px rgba(21, 31, 73, 0.09);
+}
+
+.cjs-container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: clamp(28px, 3vw, 48px);
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f6f8fe 0%, #eef3fb 100%);
+}
+
+.cjs-page-header {
+  margin-bottom: 26px;
+}
+
+.cjs-page-header h1 {
+  font-size: clamp(1.8rem, 2.2vw, 2.45rem);
+  font-weight: 700;
+  color: #23318b;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+}
+
+.cjs-page-header p {
+  font-size: 0.98rem;
+  color: var(--cjs-muted);
+  margin: 0;
+}
+
+.cjs-tab-container {
+  display: flex;
+  gap: 0;
+  margin-bottom: 28px;
+  border: 1px solid var(--cjs-border);
+  background: var(--cjs-surface);
+  border-radius: 20px;
+  padding: 8px;
+  box-shadow: var(--cjs-shadow);
+  overflow: hidden;
+}
+
+.cjs-tab {
+  flex: 1;
+  min-height: 58px;
+  padding: 13px 18px;
+  cursor: pointer;
+  border: 0;
+  font-weight: 600;
+  color: #64738a;
+  font-size: 0.98rem;
+  background: transparent;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  letter-spacing: -0.01em;
+}
+
+.cjs-tab:hover {
+  color: #23318b;
+  background: #f3f6ff;
+}
+
+.cjs-tab.cjs-active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #24379a 0%, #3847b0 100%);
+  box-shadow: 0 10px 22px rgba(36, 55, 154, 0.26);
+}
+
+.cjs-tab-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Status Filter Tabs */
+.cjs-status-filter-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding: 14px;
+  background: var(--cjs-surface);
+  border-radius: 12px;
+  border: 1px solid var(--cjs-border);
+  box-shadow: var(--cjs-shadow);
+  flex-wrap: wrap;
+}
+
+.cjs-status-filter-btn {
+  padding: 9px 16px;
+  border: 1px solid var(--cjs-border);
+  background: var(--cjs-surface);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #516277;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cjs-status-filter-btn:hover {
+  background: var(--cjs-surface-soft);
+  border-color: #c2d1e0;
+  color: #334155;
+}
+
+.cjs-status-filter-btn.active {
+  background: var(--cjs-primary);
+  color: white;
+  border-color: var(--cjs-primary);
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.22);
+}
+
+.cjs-status-filter-btn.active:hover {
+  background: #2563eb;
+}
+
+.cjs-content-section {
+  display: none;
+  margin-top: 10px;
+}
+
+.cjs-content-section.cjs-active {
+  display: block;
+}
+
+.cjs-architect-heading {
+  color: #23318b;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.55rem;
+}
+
+.cjs-interior-heading {
+  color: #5c31b4;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.55rem;
+}
+
+.cjs-company-heading {
+  color: #1f6677;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.55rem;
+}
+
+.cjs-section-hero {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--cjs-border);
+  box-shadow: var(--cjs-shadow);
+  margin-bottom: 12px;
+}
+
+.cjs-section-hero p {
+  margin: 5px 0 0;
+  color: var(--cjs-muted);
+  font-size: 0.92rem;
+}
+
+.cjs-section-hero-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex: 0 0 38px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.cjs-architect-hero {
+  background: linear-gradient(135deg, #eef3ff 0%, #f8faff 100%);
+  border-color: #cdd8ff;
+}
+
+.cjs-interior-hero {
+  background: linear-gradient(135deg, #f4efff 0%, #fbf9ff 100%);
+  border-color: #d8c9ff;
+}
+
+.cjs-company-hero {
+  background: linear-gradient(135deg, #eaf9ff 0%, #f7fdff 100%);
+  border-color: #bbe4f0;
+}
+
+.cjs-application {
+  background: var(--cjs-surface);
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  box-shadow: var(--cjs-shadow);
+  border: 1px solid var(--cjs-border);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* no hover transform or animated before bar */
+}
+
+.cjs-application::before {
+  /* keep a subtle left accent but no animated height */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+}
+
+.cjs-architect-app::before {
+  background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
+}
+.cjs-interior-app::before {
+  background: linear-gradient(to bottom, #8b5cf6, #6d28d9);
+}
+.cjs-company-app::before {
+  background: linear-gradient(to bottom, #06b6d4, #0e7490);
+}
+
+.cjs-status-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cjs-status {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.cjs-architect-status {
+  background-color: #eef4ff;
+  color: #1e40af;
+  border: 1px solid #93c5fd;
+}
+
+.cjs-interior-status {
+  background-color: #f2f0ff;
+  color: #5b21b6;
+  border: 1px solid #c4b5fd;
+}
+
+.cjs-company-status {
+  background-color: #ecfeff;
+  color: #155e75;
+  border: 1px solid #67e8f9;
+}
+
+.cjs-notification-highlight {
+  border-color: #f59e0b !important;
+  box-shadow:
+    0 0 0 3px rgba(245, 158, 11, 0.22),
+    0 14px 32px rgba(21, 31, 73, 0.09) !important;
+  animation: cjs-notification-pulse 3.5s ease-out 1;
+}
+
+@keyframes cjs-notification-pulse {
+  0% {
+    background-color: rgba(245, 158, 11, 0.2);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.cjs-chat-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.cjs-architect-chat {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+.cjs-architect-chat:hover {
+  background: #dbeafe; /* no animation */
+}
+
+.cjs-interior-chat {
+  background: #e9ddff;
+  color: #5b21b6;
+}
+.cjs-interior-chat:hover {
+  background: #e9ddff;
+}
+
+.cjs-company-chat {
+  background: #0e7490;
+  color: white;
+}
+.cjs-company-chat:hover {
+  background: #0e7490;
+}
+
+.cjs-application h3 {
+  font-size: 1.08rem;
+  color: #23318b;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  line-height: 1.25;
+}
+
+.cjs-project-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.cjs-proposal-corner {
+  margin-top: 0;
+  min-width: 240px;
+  max-width: 360px;
+}
+
+.cjs-proposal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cjs-proposal-corner p {
+  margin: 0;
+}
+
+.cjs-project-name {
+  font-weight: 700;
+  color: var(--cjs-primary);
+}
+
+.cjs-name-link {
+  border: none;
+  background: transparent;
+  color: #1d4ed8;
+  font: inherit;
+  font-weight: 700;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cjs-name-link:hover {
+  color: #1e40af;
+}
+
+.cjs-name-link:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.cjs-section-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 10px;
+  position: relative;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.cjs-section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--cjs-primary);
+  border-radius: 2px;
+}
+
+.cjs-application p {
+  margin: 4px 0;
+  color: #64748b;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.cjs-application p strong {
+  color: #334155;
+  font-weight: 600;
+  min-width: 104px;
+  display: inline-block;
+}
+
+.cjs-date-info {
+  font-size: 0.86rem;
+  color: #64748b;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cjs-no-applications {
+  text-align: center;
+  padding: 70px 40px;
+  color: #64748b;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 18px;
+  border: 2px dashed #dbe3ef;
+  margin-top: 24px;
+}
+
+.cjs-no-applications p {
+  margin: 0;
+  font-weight: 500;
+}
+
+.cjs-company-app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.cjs-application.cjs-company-app {
+  margin-bottom: 18px;
+}
+
+/* Company Details Grid */
+.cjs-company-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+  padding: 16px;
+  background: #f8fbff;
+  border-radius: 12px;
+  border: 1px solid var(--cjs-border);
+}
+
+.cjs-company-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cjs-detail-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cjs-detail-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.cjs-application-data-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+  padding: 18px;
+  background: #f7fafc;
+  border-radius: 12px;
+  border: 1px solid var(--cjs-border);
+}
+
+.cjs-application-data {
+  background-color: var(--cjs-surface);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 300px;
+  border: 1px solid var(--cjs-border);
+}
+
+.cjs-worker-details-card {
+  background-color: #f8fbff;
+  border: 1px solid var(--cjs-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.cjs-worker-details-card .cjs-section-title {
+  margin-bottom: 14px;
+}
+
+.cjs-hire-details-inline {
+  margin: 8px 0 4px;
+}
+
+.cjs-edit-action {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.cjs-btn-edit-request {
+  border: 1px solid #1d4ed8;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.cjs-btn-edit-request:hover {
+  background: #dbeafe;
+}
+
+.cjs-btn-edit-request:disabled {
+  border-color: #cbd5e1;
+  background: #f8fafc;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.cjs-edit-lock-reason {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.86rem;
+}
+
+.cjs-proposal-container {
+  background-color: var(--cjs-surface);
+  border: 1px solid var(--cjs-border);
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+.cjs-room-image {
+  max-width: 200px;
+  margin: 5px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.cjs-image-title {
+  color: #777;
+  margin: 10px 0 5px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.cjs-proposal-section {
+  background-color: #f4f8ff;
+  border-radius: 8px;
+  padding: 14px;
+  margin-top: 10px;
+  border: 1px solid #d7e3f5;
+}
+
+.cjs-proposal-price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.cjs-proposal-description {
+  color: #64748b;
+  margin: 8px 0;
+}
+
+.cjs-btn-accept-pay {
+  background: #22c55e;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  padding: 12px 24px;
+  display: inline-block;
+  margin-top: 16px;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.12);
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.cjs-btn-accept-pay:hover {
+  background: #16a34a;
+}
+
+.cjs-btn-accept-pay:active {
+  background: #15803d;
+  box-shadow: 0 2px 4px rgba(34, 197, 94, 0.2);
+}
+
+/* Pending Notice */
+.cjs-pending-notice {
+  background: #fef3c7;
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  color: #92400e;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  box-shadow:
+    0 4px 8px rgba(245, 158, 11, 0.1),
+    inset 0 0 0 1px #f59e0b;
+}
+
+/* Collapsible Buttons */
+.cjs-collapsible-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  padding: 12px;
+  background: #f8fbff;
+  border-radius: 12px;
+  border: 1px solid var(--cjs-border);
+}
+
+.cjs-section-btn {
+  background: var(--cjs-surface);
+  border: 1px solid var(--cjs-border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.cjs-section-btn:hover {
+  background: var(--cjs-surface-soft);
+  border-color: #c2d1e0;
+}
+
+.cjs-milestone-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+}
+
+.cjs-milestone-btn:hover {
+  background: #2563eb;
+}
+
+.cjs-milestone-btn:active {
+  background: #1d4ed8;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.cjs-updates-btn {
+  background: #8b5cf6;
+  color: white;
+  border: none;
+}
+
+.cjs-updates-btn:hover {
+  background: #7c3aed;
+}
+
+.cjs-updates-btn:active {
+  background: #6d28d9;
+  box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
+}
+
+.cjs-chat-btn {
+  background: #ec4899;
+  color: white;
+  border: none;
+}
+
+.cjs-chat-btn:hover {
+  background: #db2777;
+}
+
+.cjs-chat-btn:active {
+  background: #be185d;
+  box-shadow: 0 2px 4px rgba(236, 72, 153, 0.25);
+}
+
+.cjs-company-action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0 4px;
+}
+
+.cjs-images-btn {
+  background: #06b6d4;
+  color: white;
+  border: none;
+}
+
+.cjs-images-btn:hover {
+  background: #0891b2;
+}
+
+.cjs-images-btn:active {
+  background: #0e7490;
+  box-shadow: 0 2px 4px rgba(6, 182, 212, 0.2);
+}
+
+/* Milestones Section */
+.cjs-milestones-section {
+  margin: 24px 0;
+  padding: 28px;
+  background: #f8fbff;
+  border-radius: 16px;
+  border: 1px solid var(--cjs-border);
+}
+
+.cjs-milestones-section h4 {
+  color: #1e293b;
+  margin-bottom: 24px;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.cjs-milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.cjs-milestone-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.cjs-milestone-card:active {
+  transform: scale(0.98);
+}
+
+.cjs-milestone-pending {
+  box-shadow:
+    0 4px 12px rgba(245, 158, 11, 0.15),
+    inset 0 0 0 1px #f59e0b;
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+
+.cjs-milestone-pending:active {
+  box-shadow:
+    0 4px 20px rgba(245, 158, 11, 0.25),
+    inset 0 0 0 2px #f59e0b;
+}
+.cjs-card-toggle {
+  border: 1px solid #cbd8ee;
+  background: #f8fbff;
+  color: #1f3b8f;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cjs-card-toggle:hover {
+  background: #edf3ff;
+  border-color: #9fb7e9;
+}
+.cjs-card-toggle:focus-visible {
+  outline: 2px solid #7aa2ff;
+  outline-offset: 2px;
+}
+
+.cjs-milestone-approved {
+  box-shadow:
+    0 4px 12px rgba(34, 197, 94, 0.15),
+    inset 0 0 0 1px #22c55e;
+  background: #f0fdf4;
+  border-color: #22c55e;
+}
+
+.cjs-milestone-approved:active {
+  box-shadow:
+    0 4px 20px rgba(34, 197, 94, 0.25),
+    inset 0 0 0 2px #22c55e;
+}
+
+.cjs-milestone-rejected {
+  box-shadow:
+    0 4px 12px rgba(239, 68, 68, 0.15),
+    inset 0 0 0 1px #ef4444;
+  background: #fef2f2;
+  border-color: #ef4444;
+}
+
+.cjs-milestone-rejected:active {
+  box-shadow:
+    0 4px 20px rgba(239, 68, 68, 0.25),
+    inset 0 0 0 2px #ef4444;
+}
+
+.cjs-milestone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cjs-milestone-percentage {
+  background: #3b82f6;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  min-width: 85px;
+  text-align: center;
+}
+
+.cjs-milestone-status {
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.cjs-status-pending {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+}
+
+.cjs-status-approved {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #22c55e;
+}
+
+.cjs-status-rejected {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+.cjs-milestone-date {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.cjs-milestone-description p {
+  color: #334155;
+  line-height: 1.7;
+  margin: 16px 0;
+  font-size: 1rem;
+  padding: 14px;
+  background: #f8fafc;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.cjs-milestone-image-container {
+  margin: 18px 0;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cjs-milestone-image {
+  max-width: 250px;
+  max-height: 200px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* no hover transform */
+}
+
+.cjs-milestone-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.cjs-btn-approve,
+.cjs-btn-reject {
+  flex: 1;
+  min-width: 130px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  /* no hover animations */
+}
+
+.cjs-btn-approve {
+  background: #22c55e;
+  color: white;
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.12);
+}
+
+.cjs-btn-approve:hover {
+  background: #16a34a;
+}
+
+.cjs-btn-approve:active {
+  background: #15803d;
+  box-shadow: 0 2px 4px rgba(34, 197, 94, 0.2);
+}
+
+.cjs-btn-reject {
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.12);
+}
+
+.cjs-btn-reject:hover {
+  background: #dc2626;
+}
+
+.cjs-btn-reject:active {
+  background: #b91c1c;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+.cjs-milestone-approved-date,
+.cjs-milestone-rejected-info {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.cjs-milestone-rejected-info div {
+  margin: 4px 0;
+}
+
+/* Updates Section */
+.cjs-updates-section {
+  margin: 24px 0;
+  padding: 28px;
+  background: #f8fbff;
+  border-radius: 16px;
+  border: 1px solid var(--cjs-border);
+  box-shadow: var(--cjs-shadow);
+}
+
+.cjs-updates-section h4 {
+  color: #1e293b;
+  margin-bottom: 24px;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.cjs-updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cjs-update-item {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  box-shadow:
+    0 4px 8px rgba(59, 130, 246, 0.1),
+    inset 0 0 0 1px #3b82f6;
+  cursor: pointer;
+}
+
+.cjs-update-item:active {
+  box-shadow:
+    0 4px 12px rgba(59, 130, 246, 0.2),
+    inset 0 0 0 2px #3b82f6;
+  transform: scale(0.99);
+}
+
+.cjs-update-date {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cjs-update-text {
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.cjs-update-image {
+  max-width: 200px;
+  max-height: 150px;
+  border-radius: 8px;
+  cursor: pointer;
+  /* no hover transform */
+}
+
+/* Images Section */
+.cjs-images-section {
+  margin: 24px 0;
+  padding: 28px;
+  background: #f8fbff;
+  border-radius: 16px;
+  border: 1px solid var(--cjs-border);
+  box-shadow: var(--cjs-shadow);
+}
+
+.cjs-images-section h4 {
+  color: #1e293b;
+  margin-bottom: 24px;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.cjs-images-grid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.cjs-grid-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  border: 2px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  /* no hover transform or animation */
+}
+
+.cjs-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 6, 23, 0.88);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+.cjs-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: default;
+}
+
+.cjs-lightbox-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.cjs-lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.cjs-lightbox-close:hover {
+  background: #f1f5f9;
+  color: #3b82f6;
+}
+
+@media (max-width: 768px) {
+  .cjs-page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .cjs-tab-container {
+    padding: 6px;
+  }
+
+  .cjs-tab {
+    font-size: 0.86rem;
+    min-height: 50px;
+    padding: 10px 12px;
+  }
+
+  .cjs-section-hero {
+    padding: 12px 14px;
+    align-items: flex-start;
+  }
+
+  .cjs-project-header-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cjs-proposal-corner {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .cjs-company-app-container {
+    grid-template-columns: 1fr;
+  }
+  .cjs-application-data {
+    min-width: 100%;
+  }
+  .cjs-collapsible-buttons {
+    flex-direction: column;
+  }
+  .cjs-milestones-grid {
+    grid-template-columns: 1fr;
+  }
+  .cjs-images-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+  .cjs-company-details-grid {
+    grid-template-columns: 1fr;
+  }
+  .cjs-worker-details-card {
+    min-width: 100%;
+  }
+  .cjs-status-filter-tabs {
+    gap: 8px;
+  }
+  .cjs-status-filter-btn {
+    font-size: 0.85rem;
+    padding: 8px 16px;
+  }
+}
+
+/* New Milestone Action Buttons */
+.cjs-btn-revision {
+  flex: 1;
+  min-width: 130px;
+  background: #f59e0b;
+  color: white;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cjs-btn-revision:hover {
+  background: #d97706;
+}
+
+.cjs-btn-revision:active {
+  background: #b45309;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+}
+
+.cjs-btn-report {
+  flex: 1;
+  min-width: 130px;
+  background: #ef4444;
+  color: white;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.12);
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cjs-btn-report:hover {
+  background: #dc2626;
+}
+
+.cjs-btn-report:active {
+  background: #b91c1c;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+/* Revision and Review Status Info */
+.cjs-milestone-revision-info {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fef3c7;
+  border-radius: 10px;
+  box-shadow:
+    0 4px 8px rgba(245, 158, 11, 0.1),
+    inset 0 0 0 1px #f59e0b;
+  font-size: 0.9rem;
+  color: #92400e;
+  line-height: 1.6;
+}
+
+.cjs-milestone-review-info {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fee2e2;
+  border-radius: 10px;
+  box-shadow:
+    0 4px 8px rgba(239, 68, 68, 0.1),
+    inset 0 0 0 1px #ef4444;
+  font-size: 0.9rem;
+  color: #991b1b;
+  line-height: 1.6;
+}
+
+.cjs-revision-notes,
+.cjs-admin-report {
+  margin-top: 10px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+/* Status Badge Colors */
+.cjs-status-revision-requested {
+  background: #fef3c7;
+  color: #92400e !important;
+  border: 1px solid #f59e0b;
+}
+
+.cjs-status-under-review {
+  background: #fee2e2;
+  color: #991b1b !important;
+  border: 1px solid #ef4444;
+}
+
+/* Milestone Card Background Colors for New Statuses */
+.cjs-milestone-revision-requested {
+  background: #fef3c7;
+  box-shadow:
+    0 4px 12px rgba(245, 158, 11, 0.15),
+    inset 0 0 0 1px #f59e0b;
+  border-color: #f59e0b;
+}
+
+.cjs-milestone-revision-requested:active {
+  box-shadow:
+    0 4px 20px rgba(245, 158, 11, 0.25),
+    inset 0 0 0 2px #f59e0b;
+}
+
+.cjs-milestone-under-review {
+  background: #fee2e2;
+  box-shadow:
+    0 4px 12px rgba(239, 68, 68, 0.15),
+    inset 0 0 0 1px #ef4444;
+  border-color: #ef4444;
+}
+
+.cjs-milestone-under-review:active {
+  box-shadow:
+    0 4px 20px rgba(239, 68, 68, 0.25),
+    inset 0 0 0 2px #ef4444;
+}
+
+/* Revision Request Modal */
+.cjs-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.62);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10001;
+}
+
+.cjs-modal-content {
+  background: var(--cjs-surface);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 550px;
+  box-shadow: 0 28px 44px rgba(2, 6, 23, 0.24);
+  overflow: hidden;
+  border: 1px solid var(--cjs-border);
+}
+
+.cjs-company-details-modal {
+  width: 95%;
+  max-width: 980px;
+  max-height: 88vh;
+}
+
+.cjs-modal-header {
+  padding: 24px 28px;
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.cjs-modal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.cjs-modal-close {
+  background: white;
+  border: 2px solid #e2e8f0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.cjs-modal-close:hover {
+  background: #f1f5f9;
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+.cjs-modal-body {
+  padding: 28px;
+}
+
+.cjs-modal-body label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #334155;
+  font-size: 1rem;
+}
+
+.cjs-modal-textarea {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+.cjs-modal-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.cjs-modal-textarea::placeholder {
+  color: #94a3b8;
+}
+
+.cjs-modal-footer {
+  padding: 20px 28px;
+  background: #f8fafc;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  border-top: 2px solid #f1f5f9;
+}
+
+.cjs-modal-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.cjs-modal-btn-cancel {
+  background: white;
+  color: #64748b;
+  border: 2px solid #e2e8f0;
+}
+
+.cjs-modal-btn-cancel:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.cjs-modal-btn-submit {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.12);
+}
+
+.cjs-modal-btn-submit:hover {
+  background: #2563eb;
+}
+
+.cjs-modal-btn-submit:active {
+  background: #1d4ed8;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Review Prompt Section */
+.cjs-review-prompt {
+  margin-top: 32px;
+  padding: 32px;
+  background: #fef3c7;
+  border-radius: 16px;
+  border: 2px solid #f59e0b;
+  box-shadow:
+    0 4px 12px rgba(245, 158, 11, 0.1),
+    inset 0 0 0 1px #f59e0b;
+}
+
+.cjs-review-prompt-content {
+  text-align: center;
+}
+
+.cjs-review-prompt-content i {
+  font-size: 48px;
+  color: #f59e0b;
+  margin-bottom: 16px;
+  /* no pulse animation */
+}
+
+.cjs-review-prompt-content h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #92400e;
+  margin: 0 0 12px 0;
+}
+
+.cjs-review-prompt-content p {
+  font-size: 16px;
+  color: #78350f;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.cjs-btn-review {
+  padding: 14px 32px;
+  background: #f59e0b;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.12);
+}
+
+.cjs-btn-review:hover {
+  background: #d97706;
+}
+
+.cjs-btn-review:active {
+  background: #b45309;
+  box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+}
+
+/* Phases Modal Styles */
+.cjs-phases-modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto;
+  width: 90%;
+}
+
+.cjs-phases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cjs-phase-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  background: #f8fafc;
+}
+
+.cjs-phase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 12px;
+}
+
+.cjs-phase-header h4 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 1.1rem;
+}
+
+.cjs-phase-percentage {
+  background: #3b82f6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cjs-phase-details {
+  margin-bottom: 12px;
+  color: #475569;
+}
+
+.cjs-phase-details p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.cjs-subdivisions {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #cbd5e1;
+}
+
+.cjs-subdivisions-title {
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 8px;
+}
+
+.cjs-subdivisions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cjs-subdivisions li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.cjs-subdivisions li:last-child {
+  border-bottom: none;
+}
+
+.cjs-sub-category {
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.cjs-sub-desc {
+  color: #64748b;
+}
+
+.cjs-sub-amount {
+  font-weight: 600;
+  color: #3b82f6;
+}
+
+.cjs-phases-summary {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.cjs-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cjs-summary-item:last-child {
+  border-bottom: none;
+}
+
+.cjs-summary-item span:first-child {
+  font-weight: 500;
+  color: #475569;
+}
+
+.cjs-summary-amount,
+.cjs-summary-percentage {
+  font-weight: 700;
+  color: #3b82f6;
+  font-size: 1.05rem;
+}
+
+.cjs-btn-view-details {
+  background: var(--cjs-primary);
+  color: white;
+  padding: 12px 24px;
+  border: 1px solid var(--cjs-primary);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(29, 78, 216, 0.22);
+}
+
+.cjs-btn-view-details:hover {
+  background: #1d4ed8;
+}
+
+.cjs-btn-view-details:active {
+  background: #1e40af;
+  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Removed keyframes and animations entirely from this file */
+
+.cjs-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #64748b;
+  background: #fff;
+}

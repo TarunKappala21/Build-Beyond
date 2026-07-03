@@ -1,0 +1,769 @@
+/* Worker Jobs Page - Namespaced with wkj- prefix */
+
+.wkj-container {
+  height: calc(100vh - 60px);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.wkj-job-dashboard {
+  display: flex;
+  height: 100%;
+  gap: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.wkj-job-list-panel {
+  flex: 0 0 380px;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.wkj-search-container {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.wkj-search-container input {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.wkj-search-container input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.wkj-search-icon {
+  position: absolute;
+  left: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+.wkj-jobs-container {
+  overflow-y: auto;
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.wkj-job-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.wkj-job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--accent-color);
+}
+
+.wkj-job-card.active {
+  border-left: 4px solid var(--secondary-color);
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.wkj-job-type {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.wkj-job-type.residential {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.wkj-job-type.commercial {
+  background-color: #fff8e1;
+  color: #ff8f00;
+}
+
+.wkj-job-type.landscape {
+  background-color: #e8f5e9;
+  color: #388e3c;
+}
+
+.wkj-job-type.mixed-use {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.wkj-job-type.industrial {
+  background-color: #e8eaf6;
+  color: #3f51b5;
+}
+
+.wkj-job-type.other,
+.wkj-job-type.public {
+  background-color: #eeeeee;
+  color: #616161;
+}
+
+.wkj-job-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--primary-color);
+}
+
+.wkj-job-budget {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.wkj-job-summary {
+  font-size: 14px;
+  color: var(--text-color);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.wkj-no-jobs {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-light);
+}
+
+.wkj-job-details-panel {
+  flex: 1;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 30px;
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.wkj-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-light);
+  text-align: center;
+}
+
+.wkj-empty-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.wkj-empty-state h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.wkj-empty-state p {
+  font-size: 16px;
+  max-width: 300px;
+}
+
+.wkj-job-details-content {
+  animation: wkjFadeIn 0.3s ease-in-out;
+}
+
+.wkj-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.wkj-details-header-left h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+}
+
+.wkj-details-header-right {
+  text-align: right;
+}
+
+.wkj-details-section {
+  margin-bottom: 30px;
+}
+
+.wkj-details-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wkj-details-section h3 i {
+  color: var(--secondary-color);
+}
+
+.wkj-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.wkj-detail-item {
+  margin-bottom: 15px;
+}
+
+.wkj-detail-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+
+.wkj-detail-value {
+  font-size: 16px;
+}
+
+.wkj-reference-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.wkj-reference-image {
+  height: 120px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wkj-reference-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.wkj-special-features {
+  background-color: #f9f9f9;
+  padding: 18px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border-left: 3px solid var(--accent-color);
+}
+
+.wkj-job-action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.wkj-job-action-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wkj-accept-button {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.wkj-accept-button:hover {
+  background-color: #16a085;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.wkj-deny-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.wkj-deny-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes wkjFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Proposal Modal Styles */
+.wkj-modal {
+  display: flex;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+}
+
+.wkj-modal-content {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: wkjFadeIn 0.3s ease-in-out;
+}
+
+.wkj-modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.wkj-modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.wkj-update-notice {
+  margin: 0.75rem 0 0 0;
+  padding: 0.75rem;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+  color: #856404;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wkj-update-notice i {
+  color: #ffc107;
+}
+
+.wkj-modal-body {
+  padding: 1.5rem;
+}
+
+.wkj-close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.wkj-close-modal:hover {
+  color: var(--primary-color);
+}
+
+.wkj-form-group {
+  margin-bottom: 1rem;
+}
+
+.wkj-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.wkj-form-group input,
+.wkj-form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.wkj-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.wkj-form-group textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wkj-form-group textarea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.wkj-form-group textarea::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.wkj-form-group textarea::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.wkj-form-group input:focus,
+.wkj-form-group textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Form Validation Styles */
+.wkj-form-group.wkj-error input,
+.wkj-form-group.wkj-error textarea {
+  border-color: #e74c3c;
+}
+
+.wkj-form-group.wkj-success input,
+.wkj-form-group.wkj-success textarea {
+  border-color: #27ae60;
+}
+
+.wkj-input-error {
+  border-color: #e74c3c !important;
+}
+
+.wkj-input-error:focus {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
+}
+
+.wkj-input-success {
+  border-color: #27ae60 !important;
+}
+
+.wkj-input-success:focus {
+  border-color: #27ae60 !important;
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2) !important;
+}
+
+.wkj-error-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 0.875rem;
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.wkj-error-message i {
+  font-size: 0.875rem;
+}
+
+.wkj-success-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 0.875rem;
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.wkj-success-message i {
+  font-size: 0.875rem;
+}
+
+.wkj-help-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  color: var(--text-light);
+}
+
+.wkj-required {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* Character Counter */
+.wkj-char-counter {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.wkj-counter-warning {
+  color: #f39c12;
+}
+
+.wkj-counter-success {
+  color: #27ae60;
+}
+
+.wkj-counter-danger {
+  color: #e74c3c;
+}
+
+/* Button Disabled State */
+.wkj-job-action-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #95a5a6;
+}
+
+.wkj-job-action-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+  background: #95a5a6;
+}
+
+/* Loading Spinner */
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Proposal Submitted Info Styles */
+.wkj-proposal-submitted-info {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
+  border: 1px solid #81c784;
+  border-radius: 16px;
+  padding: 0;
+  margin-top: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.wkj-proposal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+  color: white;
+  margin: 0;
+}
+
+.wkj-proposal-header i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.wkj-proposal-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.3px;
+}
+
+.wkj-proposal-details {
+  background: white;
+  padding: 1.5rem;
+  margin: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.wkj-proposal-detail-item {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.wkj-proposal-detail-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.wkj-proposal-label {
+  display: block;
+  font-weight: 600;
+  color: #616161;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wkj-proposal-value {
+  display: inline-block;
+  color: #2e7d32;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.wkj-proposal-description {
+  margin: 0;
+  color: #424242;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-size: 0.95rem;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #66bb6a;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.wkj-proposal-description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wkj-proposal-description::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.wkj-proposal-description::-webkit-scrollbar-thumb {
+  background: #66bb6a;
+  border-radius: 3px;
+}
+
+.wkj-proposal-description::-webkit-scrollbar-thumb:hover {
+  background: #4caf50;
+}
+
+.wkj-proposal-status-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  margin: 0;
+  color: #795548;
+  font-weight: 500;
+  font-style: italic;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-radius: 0;
+  font-size: 0.9rem;
+}
+
+.wkj-proposal-status-text i {
+  color: #ff9800;
+  font-size: 1.1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Update Proposal Button */
+.wkj-update-button {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #1976d2;
+  border: 1px solid #90caf9;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.wkj-update-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+  border-color: #64b5f6;
+}
+
+.wkj-update-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .wkj-job-list-panel {
+    flex: 0 0 340px;
+  }
+}
+
+@media (max-width: 992px) {
+  .wkj-job-dashboard {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .wkj-job-list-panel,
+  .wkj-job-details-panel {
+    height: 500px;
+    width: 100%;
+  }
+  
+  body {
+    height: auto;
+    overflow: auto;
+  }
+  
+  .wkj-container {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  .wkj-details-grid {
+    grid-template-columns: 1fr;
+  }
+}

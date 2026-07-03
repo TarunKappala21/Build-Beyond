@@ -1,0 +1,42 @@
+{
+  "label": "admin-data-management",
+  "capturedAt": "2026-04-19T10:37:30.654Z",
+  "benchmarkInput": {
+    "tab": "customers",
+    "page": 1,
+    "limit": 20
+  },
+  "oldScenario": {
+    "mode": "full-collection-read",
+    "latencyMs": 1820.076,
+    "payloadSize": {
+      "bytes": 372758,
+      "kb": 364.021,
+      "mb": 0.355
+    },
+    "heapDelta": {
+      "bytes": 881736,
+      "kb": 861.07,
+      "mb": 0.841
+    }
+  },
+  "newScenario": {
+    "mode": "paginated-tab-read",
+    "latencyMs": 402.072,
+    "payloadSize": {
+      "bytes": 5382,
+      "kb": 5.256,
+      "mb": 0.005
+    },
+    "heapDelta": {
+      "bytes": 3182528,
+      "kb": 3107.938,
+      "mb": 3.035
+    }
+  },
+  "improvement": {
+    "latencyImprovementPct": 77.91,
+    "payloadReductionPct": 98.56,
+    "memoryDeltaReductionPct": -260.94
+  }
+}

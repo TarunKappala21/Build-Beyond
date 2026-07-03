@@ -1,0 +1,745 @@
+/* Interior Designer Jobs Styles - wkidj prefix */
+:root {
+  --wkidj-primary-color: #2c3e50;
+  --wkidj-secondary-color: #3498db;
+  --wkidj-accent-color: #1abc9c;
+  --wkidj-background-color: #f5f7fa;
+  --wkidj-card-bg: #ffffff;
+  --wkidj-text-color: #333333;
+  --wkidj-text-light: #7f8c8d;
+  --wkidj-border-color: #e0e0e0;
+  --wkidj-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --wkidj-transition: all 0.3s ease;
+}
+
+.wkidj-container {
+  min-height: calc(100vh - 60px);
+  padding: 20px;
+  background-color: var(--wkidj-background-color);
+}
+
+.wkidj-job-dashboard {
+  display: flex;
+  height: calc(100vh - 100px);
+  gap: 30px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Job List Panel */
+.wkidj-job-list-panel {
+  flex: 0 0 380px;
+  background-color: var(--wkidj-card-bg);
+  border-radius: 12px;
+  box-shadow: var(--wkidj-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.wkidj-search-container {
+  padding: 20px;
+  border-bottom: 1px solid var(--wkidj-border-color);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.wkidj-search-container input {
+  width: 100%;
+  padding: 12px 15px 12px 40px;
+  border: 1px solid var(--wkidj-border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  transition: var(--wkidj-transition);
+}
+
+.wkidj-search-container input:focus {
+  outline: none;
+  border-color: var(--wkidj-secondary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.wkidj-search-icon {
+  position: absolute;
+  left: 35px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--wkidj-text-light);
+}
+
+.wkidj-jobs-container {
+  overflow-y: auto;
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.wkidj-job-card {
+  background-color: var(--wkidj-card-bg);
+  border: 1px solid var(--wkidj-border-color);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: var(--wkidj-transition);
+}
+
+.wkidj-job-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--wkidj-accent-color);
+}
+
+.wkidj-job-card.active {
+  border-left: 4px solid var(--wkidj-secondary-color);
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.wkidj-job-type {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.wkidj-job-type.wkidj-interior {
+  background-color: #fce4ec;
+  color: #c2185b;
+}
+
+.wkidj-job-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--wkidj-primary-color);
+}
+
+.wkidj-job-budget {
+  font-size: 14px;
+  color: var(--wkidj-text-light);
+  margin-bottom: 10px;
+}
+
+.wkidj-job-summary {
+  font-size: 14px;
+  color: var(--wkidj-text-color);
+}
+
+.wkidj-no-jobs {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--wkidj-text-light);
+}
+
+/* Job Details Panel */
+.wkidj-job-details-panel {
+  flex: 1;
+  background-color: var(--wkidj-card-bg);
+  border-radius: 12px;
+  box-shadow: var(--wkidj-shadow);
+  padding: 30px;
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.wkidj-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--wkidj-text-light);
+  text-align: center;
+}
+
+.wkidj-empty-icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.wkidj-empty-state h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.wkidj-empty-state p {
+  font-size: 16px;
+  max-width: 300px;
+}
+
+.wkidj-job-details-content {
+  animation: wkidj-fadeIn 0.3s ease-in-out;
+}
+
+.wkidj-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--wkidj-border-color);
+}
+
+.wkidj-details-header-left h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--wkidj-primary-color);
+}
+
+.wkidj-details-header-right {
+  text-align: right;
+}
+
+.wkidj-details-section {
+  margin-bottom: 30px;
+}
+
+.wkidj-details-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--wkidj-primary-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wkidj-details-section h3 i {
+  color: var(--wkidj-secondary-color);
+}
+
+.wkidj-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.wkidj-detail-item {
+  margin-bottom: 15px;
+}
+
+.wkidj-detail-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--wkidj-text-light);
+  margin-bottom: 5px;
+}
+
+.wkidj-detail-value {
+  font-size: 16px;
+}
+
+.wkidj-reference-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.wkidj-reference-image {
+  height: 120px;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  transition: var(--wkidj-transition);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wkidj-reference-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.wkidj-special-features {
+  background-color: #f9f9f9;
+  padding: 18px;
+  border-radius: 8px;
+  margin-top: 15px;
+  border-left: 3px solid var(--wkidj-accent-color);
+}
+
+.wkidj-job-action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.wkidj-job-action-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--wkidj-transition);
+  border: none;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wkidj-accept-button {
+  background-color: var(--wkidj-accent-color);
+  color: white;
+}
+
+.wkidj-accept-button:hover {
+  background-color: #16a085;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.wkidj-deny-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.wkidj-deny-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes wkidj-fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Proposal Modal Styles */
+.wkidj-modal {
+  display: flex;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+}
+
+.wkidj-modal-content {
+  background-color: var(--wkidj-card-bg);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: wkidj-fadeIn 0.3s ease-in-out;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.wkidj-modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--wkidj-border-color);
+}
+
+.wkidj-modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: var(--wkidj-primary-color);
+}
+
+.wkidj-update-notice {
+  margin: 0.75rem 0 0 0;
+  padding: 0.75rem;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+  color: #856404;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.wkidj-update-notice i {
+  color: #ffc107;
+}
+
+.wkidj-modal-body {
+  padding: 1.5rem;
+}
+
+.wkidj-close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: var(--wkidj-text-light);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.wkidj-close-modal:hover {
+  color: var(--wkidj-primary-color);
+}
+
+.wkidj-form-group {
+  margin-bottom: 1rem;
+}
+
+.wkidj-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--wkidj-primary-color);
+}
+
+.wkidj-form-group input,
+.wkidj-form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--wkidj-border-color);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+.wkidj-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.wkidj-form-group textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.wkidj-form-group textarea::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.wkidj-form-group textarea::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.wkidj-form-group textarea::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.wkidj-form-group input:focus,
+.wkidj-form-group textarea:focus {
+  outline: none;
+  border-color: var(--wkidj-secondary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Form Validation Styles */
+.wkidj-form-group.wkidj-error input,
+.wkidj-form-group.wkidj-error textarea {
+  border-color: #e74c3c;
+}
+
+.wkidj-form-group.wkidj-success input,
+.wkidj-form-group.wkidj-success textarea {
+  border-color: #27ae60;
+}
+
+.wkidj-input-error {
+  border-color: #e74c3c !important;
+}
+
+.wkidj-input-error:focus {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
+}
+
+.wkidj-input-success {
+  border-color: #27ae60 !important;
+}
+
+.wkidj-input-success:focus {
+  border-color: #27ae60 !important;
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2) !important;
+}
+
+.wkidj-error-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 0.875rem;
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.wkidj-error-message i {
+  font-size: 0.875rem;
+}
+
+.wkidj-success-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  font-size: 0.875rem;
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.wkidj-success-message i {
+  font-size: 0.875rem;
+}
+
+.wkidj-help-text {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8125rem;
+  color: var(--wkidj-text-light);
+}
+
+.wkidj-required {
+  color: #e74c3c;
+  font-weight: bold;
+  margin-left: 2px;
+}
+
+/* Character Counter */
+.wkidj-char-counter {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.wkidj-counter-warning {
+  color: #f39c12;
+}
+
+.wkidj-counter-success {
+  color: #27ae60;
+}
+
+.wkidj-counter-danger {
+  color: #e74c3c;
+}
+
+/* Button Disabled State */
+.wkidj-job-action-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #95a5a6;
+}
+
+.wkidj-job-action-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+  background: #95a5a6;
+}
+
+/* Loading Spinner */
+.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Proposal Submitted Info Styles */
+.wkidj-proposal-submitted-info {
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
+  border: 1px solid #81c784;
+  border-radius: 16px;
+  padding: 0;
+  margin-top: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+}
+
+.wkidj-proposal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+  color: white;
+  margin: 0;
+}
+
+.wkidj-proposal-header i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+.wkidj-proposal-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.3px;
+}
+
+.wkidj-proposal-details {
+  background: white;
+  padding: 1.5rem;
+  margin: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.wkidj-proposal-detail-item {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.wkidj-proposal-detail-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.wkidj-proposal-label {
+  display: block;
+  font-weight: 600;
+  color: #616161;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wkidj-proposal-value {
+  display: inline-block;
+  color: #2e7d32;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.wkidj-proposal-description {
+  margin: 0;
+  color: #424242;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  font-size: 0.95rem;
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #66bb6a;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.wkidj-proposal-description::-webkit-scrollbar {
+  width: 6px;
+}
+
+.wkidj-proposal-description::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.wkidj-proposal-description::-webkit-scrollbar-thumb {
+  background: #66bb6a;
+  border-radius: 3px;
+}
+
+.wkidj-proposal-description::-webkit-scrollbar-thumb:hover {
+  background: #4caf50;
+}
+
+.wkidj-proposal-status-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  margin: 0;
+  color: #795548;
+  font-weight: 500;
+  font-style: italic;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border-radius: 0;
+  font-size: 0.9rem;
+}
+
+.wkidj-proposal-status-text i {
+  color: #ff9800;
+  font-size: 1.1rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Update Proposal Button */
+.wkidj-update-button {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #1976d2;
+  border: 1px solid #90caf9;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.wkidj-update-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+  border-color: #64b5f6;
+}
+
+.wkidj-update-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .wkidj-job-list-panel {
+    flex: 0 0 340px;
+  }
+}
+
+@media (max-width: 992px) {
+  .wkidj-job-dashboard {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .wkidj-job-list-panel, .wkidj-job-details-panel {
+    height: 500px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .wkidj-details-grid {
+    grid-template-columns: 1fr;
+  }
+}

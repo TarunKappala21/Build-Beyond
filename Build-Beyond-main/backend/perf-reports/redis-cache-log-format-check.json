@@ -1,0 +1,278 @@
+{
+  "label": "log-format-check",
+  "capturedAt": "2026-04-20T18:07:55.396Z",
+  "runConfig": {
+    "baseUrl": "http://localhost:3000",
+    "requestCount": 1,
+    "totalRequests": 6,
+    "endpointCount": 6,
+    "endpoints": [
+      {
+        "name": "Admin Verify Session",
+        "method": "GET",
+        "path": "/api/admin/verify-session",
+        "endpointId": "GET /api/admin/verify-session"
+      },
+      {
+        "name": "Admin Dashboard",
+        "method": "GET",
+        "path": "/api/admindashboard",
+        "endpointId": "GET /api/admindashboard"
+      },
+      {
+        "name": "Admin Analytics",
+        "method": "GET",
+        "path": "/api/admin/analytics",
+        "endpointId": "GET /api/admin/analytics"
+      },
+      {
+        "name": "Admin Revenue",
+        "method": "GET",
+        "path": "/api/admin/revenue",
+        "endpointId": "GET /api/admin/revenue"
+      },
+      {
+        "name": "Admin Platform Revenue Intelligence",
+        "method": "GET",
+        "path": "/api/admin/revenue/platform-intelligence?timeframe=month&page=1&limit=20",
+        "endpointId": "GET /api/admin/revenue/platform-intelligence?timeframe=month&page=1&limit=20"
+      },
+      {
+        "name": "Admin Settings",
+        "method": "GET",
+        "path": "/api/admin/settings",
+        "endpointId": "GET /api/admin/settings"
+      }
+    ],
+    "loginUsed": true,
+    "tokenProvided": false,
+    "cookieProvided": false,
+    "loginPath": "/api/admin/login"
+  },
+  "latency": {
+    "count": 6,
+    "minMs": 139.479,
+    "maxMs": 986.25,
+    "avgMs": 506.947,
+    "p50Ms": 418.222,
+    "p95Ms": 986.25,
+    "p99Ms": 986.25
+  },
+  "statusCount": {
+    "200": 6
+  },
+  "endpoints": [
+    {
+      "name": "Admin Verify Session",
+      "method": "GET",
+      "path": "/api/admin/verify-session",
+      "endpointId": "GET /api/admin/verify-session",
+      "requests": 1,
+      "latency": {
+        "count": 1,
+        "minMs": 139.479,
+        "maxMs": 139.479,
+        "avgMs": 139.479,
+        "p50Ms": 139.479,
+        "p95Ms": 139.479,
+        "p99Ms": 139.479
+      },
+      "statusCount": {
+        "200": 1
+      },
+      "redis": {
+        "delta": {
+          "hits": 0,
+          "misses": 3,
+          "sets": 3,
+          "invalidateCalls": 0,
+          "invalidatedKeys": 0,
+          "skippedNoRedis": 0,
+          "errors": 1,
+          "totalOps": 6
+        },
+        "hitRatePct": 0,
+        "cacheLookups": 3
+      }
+    },
+    {
+      "name": "Admin Dashboard",
+      "method": "GET",
+      "path": "/api/admindashboard",
+      "endpointId": "GET /api/admindashboard",
+      "requests": 1,
+      "latency": {
+        "count": 1,
+        "minMs": 818.657,
+        "maxMs": 818.657,
+        "avgMs": 818.657,
+        "p50Ms": 818.657,
+        "p95Ms": 818.657,
+        "p99Ms": 818.657
+      },
+      "statusCount": {
+        "200": 1
+      },
+      "redis": {
+        "delta": {
+          "hits": 0,
+          "misses": 3,
+          "sets": 3,
+          "invalidateCalls": 0,
+          "invalidatedKeys": 0,
+          "skippedNoRedis": 0,
+          "errors": 0,
+          "totalOps": 6
+        },
+        "hitRatePct": 0,
+        "cacheLookups": 3
+      }
+    },
+    {
+      "name": "Admin Analytics",
+      "method": "GET",
+      "path": "/api/admin/analytics",
+      "endpointId": "GET /api/admin/analytics",
+      "requests": 1,
+      "latency": {
+        "count": 1,
+        "minMs": 418.222,
+        "maxMs": 418.222,
+        "avgMs": 418.222,
+        "p50Ms": 418.222,
+        "p95Ms": 418.222,
+        "p99Ms": 418.222
+      },
+      "statusCount": {
+        "200": 1
+      },
+      "redis": {
+        "delta": {
+          "hits": 0,
+          "misses": 4,
+          "sets": 4,
+          "invalidateCalls": 0,
+          "invalidatedKeys": 0,
+          "skippedNoRedis": 0,
+          "errors": 0,
+          "totalOps": 8
+        },
+        "hitRatePct": 0,
+        "cacheLookups": 4
+      }
+    },
+    {
+      "name": "Admin Revenue",
+      "method": "GET",
+      "path": "/api/admin/revenue",
+      "endpointId": "GET /api/admin/revenue",
+      "requests": 1,
+      "latency": {
+        "count": 1,
+        "minMs": 986.25,
+        "maxMs": 986.25,
+        "avgMs": 986.25,
+        "p50Ms": 986.25,
+        "p95Ms": 986.25,
+        "p99Ms": 986.25
+      },
+      "statusCount": {
+        "200": 1
+      },
+      "redis": {
+        "delta": {
+          "hits": 0,
+          "misses": 3,
+          "sets": 3,
+          "invalidateCalls": 0,
+          "invalidatedKeys": 0,
+          "skippedNoRedis": 0,
+          "errors": 0,
+          "totalOps": 6
+        },
+        "hitRatePct": 0,
+        "cacheLookups": 3
+      }
+    },
+    {
+      "name": "Admin Platform Revenue Intelligence",
+      "method": "GET",
+      "path": "/api/admin/revenue/platform-intelligence?timeframe=month&page=1&limit=20",
+      "endpointId": "GET /api/admin/revenue/platform-intelligence?timeframe=month&page=1&limit=20",
+      "requests": 1,
+      "latency": {
+        "count": 1,
+        "minMs": 457.834,
+        "maxMs": 457.834,
+        "avgMs": 457.834,
+        "p50Ms": 457.834,
+        "p95Ms": 457.834,
+        "p99Ms": 457.834
+      },
+      "statusCount": {
+        "200": 1
+      },
+      "redis": {
+        "delta": {
+          "hits": 0,
+          "misses": 4,
+          "sets": 4,
+          "invalidateCalls": 0,
+          "invalidatedKeys": 0,
+          "skippedNoRedis": 0,
+          "errors": 0,
+          "totalOps": 8
+        },
+        "hitRatePct": 0,
+        "cacheLookups": 4
+      }
+    },
+    {
+      "name": "Admin Settings",
+      "method": "GET",
+      "path": "/api/admin/settings",
+      "endpointId": "GET /api/admin/settings",
+      "requests": 1,
+      "latency": {
+        "count": 1,
+        "minMs": 221.238,
+        "maxMs": 221.238,
+        "avgMs": 221.238,
+        "p50Ms": 221.238,
+        "p95Ms": 221.238,
+        "p99Ms": 221.238
+      },
+      "statusCount": {
+        "200": 1
+      },
+      "redis": {
+        "delta": {
+          "hits": 0,
+          "misses": 3,
+          "sets": 3,
+          "invalidateCalls": 0,
+          "invalidatedKeys": 0,
+          "skippedNoRedis": 0,
+          "errors": 0,
+          "totalOps": 6
+        },
+        "hitRatePct": 0,
+        "cacheLookups": 3
+      }
+    }
+  ],
+  "redis": {
+    "stats": {
+      "hits": 0,
+      "misses": 27,
+      "sets": 26,
+      "invalidateCalls": 1,
+      "invalidatedKeys": 0,
+      "skippedNoRedis": 0,
+      "errors": 1,
+      "totalOps": 54
+    },
+    "hitRatePct": 0,
+    "cacheLookups": 27
+  }
+}

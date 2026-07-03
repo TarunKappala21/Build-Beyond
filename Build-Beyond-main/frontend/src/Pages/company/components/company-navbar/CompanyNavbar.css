@@ -1,0 +1,254 @@
+/* src/components/company-navbar/CompanyNavbar.css */
+
+.company_navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(90deg, #0f172a 0%, #1e293b 55%, #111827 100%);
+  border-bottom: 1px solid var(--border-dark, #374151);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+}
+
+.company_navbar_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2.5rem;
+  height: 70px;
+  color: var(--text-primary, #F9FAFB);
+  max-width: 100vw;
+  font-family: "Poppins", sans-serif;
+}
+
+.company_navbar_brand {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.company_navbar_navLinks {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.company_navbar_navLink {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.company_navbar_navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-accent, #2DD4BF);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-out;
+}
+
+.company_navbar_navLink:hover,
+.company_navbar_navLink.active {
+  color: #7dd3fc;
+}
+
+.company_navbar_navLink:hover::after,
+.company_navbar_navLink.active::after {
+  transform: scaleX(1);
+}
+
+.company_navbar_settingsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.company_navbar_notificationContainer {
+  position: relative;
+}
+
+.company_navbar_bellBtn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.25s ease;
+}
+
+.company_navbar_bellBtn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.company_navbar_bellSvg {
+  width: 22px;
+  height: 22px;
+  fill: #dbeafe;
+}
+
+.company_navbar_notificationBadge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  line-height: 18px;
+  text-align: center;
+  font-weight: 700;
+  color: #fff;
+  background: #dc2626;
+  border: 2px solid #0f172a;
+}
+
+.company_navbar_notificationDropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: 360px;
+  max-height: 420px;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #0f172a;
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.45);
+  z-index: 1200;
+}
+
+.company_navbar_notificationHeader {
+  padding: 0.9rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.company_navbar_notificationList {
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.company_navbar_notificationItem {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  color: #e2e8f0;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #1e293b;
+  cursor: pointer;
+}
+
+.company_navbar_notificationItem:hover {
+  background: rgba(45, 212, 191, 0.12);
+}
+
+.company_navbar_notificationTitle {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.company_navbar_notificationText {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: #93c5fd;
+}
+
+.company_navbar_notificationMessage {
+  margin-top: 5px;
+  font-size: 0.78rem;
+  color: #cbd5e1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.company_navbar_notificationTime {
+  margin-top: 6px;
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+
+.company_navbar_notificationEmpty {
+  padding: 1rem;
+  color: #94a3b8;
+  font-size: 0.86rem;
+}
+
+.company_navbar_dotBadge {
+  position: absolute;
+  top: 5px;
+  right: -5px;
+  width: 10px;
+  height: 10px;
+  background-color: #dc3545;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.company_navbar_settingsBtn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.company_navbar_settingsBtn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.company_navbar_settingsIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--border-dark, #374151);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.company_navbar_settingsSvg {
+  width: 18px;
+  height: 18px;
+  fill: var(--text-secondary, #9CA3AF);
+}
+
+@media (max-width: 1100px) {
+  .company_navbar_notificationDropdown {
+    width: 320px;
+    right: -30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .company_navbar_notificationDropdown {
+    width: min(90vw, 320px);
+    right: -8px;
+  }
+}

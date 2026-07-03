@@ -1,0 +1,212 @@
+const mongoose = require('mongoose');
+
+const constructionProjectSchema = new mongoose.Schema({
+  projectName: { type: String, required: true },
+  status: {
+    type: String,
+    enum: ['pending', 'proposal_sent', 'accepted', 'rejected'],
+    default: 'pending',
+  },
+  proposal: {
+    price: { type: Number },
+    description: { type: String },
+    phases: [
+      {
+        name: { type: String },
+        percentage: { type: Number, min: 0, max: 100 },
+        requiredMonths: { type: Number },
+        amount: { type: Number },
+        subdivisions: [
+          {
+            category: { type: String },
+            description: { type: String },
+            amount: { type: Number },
+          },
+        ],
+        paymentSchedule: {
+          upfrontPercentage: { type: Number, default: 75 },
+          completionPercentage: { type: Number, default: 25 },
+          finalPercentage: { type: Number, default: 0 },
+        },
+        bills: [
+          {
+            fileName: { type: String },
+            fileUrl: { type: String },
+            uploadedAt: { type: Date, default: Date.now },
+            uploadedBy: { type: String, enum: ['company', 'customer'] },
+          },
+        ],
+      },
+    ],
+    sentAt: { type: Date },
+  },
+  paymentDetails: {
+    totalAmount: { type: Number },
+    platformFee: { type: Number },
+    platformFeeRate: { type: Number, default: 5 },
+    amountPaidToCompany: { type: Number, default: 0 },
+    paymentStatus: {
+      type: String,
+      enum: ['unpaid', 'paid', 'partially_paid', 'completed'],
+      default: 'unpaid',
+    },
+    payouts: [
+      {
+        amount: { type: Number, required: true },
+        platformFee: { type: Number, default: 0 },
+        netAmount: { type: Number, default: 0 },
+        status: { type: String, enum: ['pending', 'held', 'released'], default: 'pending' },
+        releaseDate: { type: Date },
+        milestonePercentage: { type: Number, min: 0, max: 100 },
+        customerPaidAmount: { type: Number, default: 0 },
+        immediateReleaseAmount: { type: Number, default: 0 },
+        heldAmount: { type: Number, default: 0 },
+        initialReleaseDate: { type: Date },
+        customerPaidAt: { type: Date },
+        phaseName: { type: String },
+        phaseIndex: { type: Number },
+        paymentStage: { type: String, enum: ['upfront', 'completion', 'final'] },
+        platformFeeStatus: { type: String, enum: ['not_due', 'pending', 'collected'], default: 'not_due' },
+        platformFeeInvoiceUrl: { type: String },
+        platformFeeInvoiceUploadedAt: { type: Date },
+        platformFeeCollectedAt: { type: Date },
+        platformFeeCollectedBy: { type: mongoose.Schema.Types.ObjectId, ref: 'PlatformManager' },
+        platformFeeRazorpayOrderId: { type: String },
+        platformFeeRazorpayPaymentId: { type: String },
+        razorpayOrderId: { type: String },
+        razorpayPaymentId: { type: String },
+      },
+    ],
+  },
+  customerId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Customer',
+    required: true,
+  },
+  companyId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Company',
+    required: true,
+  },
+  customerName: { type: String, required: true },
+  customerEmail: {
+    type: String,
+    required: true,
+    match: [/.+\@.+\..+/, 'Please enter a valid email'],
+  },
+  customerPhone: { type: String, required: true },
+  projectAddress: { type: String, required: true },
+  projectLocationPincode: { type: String },
+  totalArea: { type: Number, required: true },
+  buildingType: {
+    type: String,
+    enum: ['residential', 'commercial', 'industrial', 'mixedUse', 'other'],
+    required: true,
+  },
+  estimatedBudget: Number,
+  projectTimeline: Number,
+  totalFloors: { type: Number, required: true, min: 1 },
+  floors: [
+    {
+      floorNumber: Number,
+      floorType: {
+        type: String,
+        enum: ['residential', 'commercial', 'parking', 'mechanical', 'other'],
+      },
+      floorArea: Number,
+      floorDescription: String,
+      floorImagePath: String,
+    },
+  ],
+  specialRequirements: String,
+  accessibilityNeeds: {
+    type: String,
+    enum: ['wheelchair', 'elevators', 'ramps', 'other', 'none', ''],
+  },
+  energyEfficiency: {
+    type: String,
+    enum: ['standard', 'leed', 'passive', 'netZero', 'other', ''],
+  },
+  siteFilepaths: [String],
+  completionPercentage: { type: Number, min: 0, max: 100, default: 0 },
+  targetCompletionDate: { type: Date },
+  currentPhase: { type: String, enum: ['Foundation', 'Structure', 'Interior work', 'Finishing'] },
+  mainImagePath: String,
+  additionalImagePaths: [String],
+  milestones: [
+    {
+      percentage: { type: Number, required: true, min: 0, max: 100 },
+      phaseName: { type: String },
+      companyMessage: { type: String, required: true },
+      isApprovedByCustomer: { type: Boolean, default: false },
+      submittedAt: { type: Date, default: Date.now },
+      approvedAt: { type: Date },
+      isCheckpoint: { type: Boolean, default: false },
+      isAutoGenerated: { type: Boolean, default: false },
+      needsRevision: { type: Boolean, default: false },
+      customerFeedback: { type: String, default: '' },
+      payments: {
+        upfront: {
+          amount: { type: Number, default: 0 },
+          status: { type: String, enum: ['pending', 'held', 'released'], default: 'pending' },
+          releasedAt: { type: Date },
+          billUrl: { type: String },
+        },
+        completion: {
+          amount: { type: Number, default: 0 },
+          status: { type: String, enum: ['pending', 'held', 'released'], default: 'pending' },
+          releasedAt: { type: Date },
+          billUrl: { type: String },
+        },
+        final: {
+          amount: { type: Number, default: 0 },
+          status: { type: String, enum: ['pending', 'held', 'released'], default: 'pending' },
+          releasedAt: { type: Date },
+          billUrl: { type: String },
+        },
+      },
+      conversation: [
+        {
+          sender: { type: String, enum: ['company', 'customer'], required: true },
+          message: { type: String, required: true },
+          timestamp: { type: Date, default: Date.now },
+          viewedByCompany: { type: Boolean, default: false },
+          viewedByCustomer: { type: Boolean, default: false },
+        },
+      ],
+    },
+  ],
+  recentUpdates: [
+    {
+      updateText: String,
+      updateImagePath: String,
+      createdAt: { type: Date, default: Date.now },
+    },
+  ],
+  completionImages: [{ type: String }],
+  customerReview: {
+    rating: { type: Number, min: 1, max: 5 },
+    reviewText: { type: String },
+    reviewDate: { type: Date },
+  },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+});
+
+constructionProjectSchema.pre('save', function (next) {
+  this.updatedAt = Date.now();
+  next();
+});
+
+constructionProjectSchema.index({ customerId: 1, createdAt: -1 });
+constructionProjectSchema.index({ companyId: 1, createdAt: -1 });
+constructionProjectSchema.index({ status: 1, updatedAt: -1 });
+constructionProjectSchema.index({ 'paymentDetails.paymentStatus': 1 });
+constructionProjectSchema.index({ customerId: 1, status: 1, createdAt: -1 });
+constructionProjectSchema.index({ companyId: 1, status: 1, createdAt: -1 });
+constructionProjectSchema.index({ 'paymentDetails.payouts.platformFeeStatus': 1, updatedAt: -1 });
+constructionProjectSchema.index({ 'paymentDetails.payouts.razorpayOrderId': 1 });
+
+module.exports =
+  mongoose.models.ConstructionProjectSchema ||
+  mongoose.model('ConstructionProjectSchema', constructionProjectSchema);

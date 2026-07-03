@@ -1,0 +1,137 @@
+.architect360-page {
+  background: linear-gradient(160deg, #eff6ff 0%, #ecfeff 100%);
+}
+
+.architect360-summary-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.architect360-payment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.summary-card.red .summary-accent {
+  background: #ef4444;
+}
+
+.summary-card.rose .summary-accent {
+  background: #f43f5e;
+}
+
+.summary-card.emerald .summary-accent {
+  background: #059669;
+}
+
+.architect360-inline-btn {
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.architect360-wide-field {
+  grid-column: 1 / -1;
+}
+
+.architect360-file-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.architect360-file-link {
+  text-decoration: none;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  background: #dbeafe;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.architect360-file-link:hover {
+  background: #bfdbfe;
+}
+
+.architect360-note {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: #475569;
+}
+
+.architect360-update-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.architect360-update-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.architect360-update-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.1);
+}
+
+.architect360-update-image,
+.architect360-image-placeholder {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  margin-top: 10px;
+}
+
+.architect360-image-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  background: #f8fafc;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.architect360-image-link {
+  display: block;
+}
+
+.error-state {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.error-state h2 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.error-state p {
+  margin: 0 0 16px;
+  color: #64748b;
+}
+
+@media (max-width: 1400px) {
+  .architect360-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .architect360-payment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .architect360-summary-grid,
+  .architect360-payment-grid,
+  .architect360-update-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,86 @@
+/* UpdateForm styles are already in OngoingProjects.css with wkop-update-form namespace */
+
+/* Additional styles for Milestone Form */
+.wkop-milestone-form {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.wkop-form-title {
+  color: #374151;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.wkop-milestone-form .wkop-form-group label {
+  color: #374151;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.wkop-milestone-select {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wkop-milestone-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.wkop-milestone-form textarea {
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+}
+
+.wkop-milestone-form textarea:focus {
+  border-color: #3b82f6;
+}
+
+.wkop-milestone-form input[type="file"] {
+  background: #ffffff;
+  padding: 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+}
+
+.wkop-milestone-form .wkop-hint {
+  color: #6b7280;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+  display: block;
+}
+
+.wkop-btn-milestone {
+  background: #3b82f6;
+  color: white;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wkop-btn-milestone:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.wkop-btn-milestone:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}

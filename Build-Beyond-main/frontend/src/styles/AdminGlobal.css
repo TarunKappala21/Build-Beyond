@@ -1,0 +1,263 @@
+/* AdminGlobal.css - Global Admin Styling and Animations */
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  
+  --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-ease-out: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ===== BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  color: #1f2937;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+}
+
+/* ===== UTILITY ANIMATION CLASSES ===== */
+.animate-fade-in {
+  animation: fadeIn var(--duration-normal) ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--duration-normal) var(--easing-smooth);
+}
+
+.animate-slide-down {
+  animation: slideDown var(--duration-normal) var(--easing-smooth);
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft var(--duration-normal) var(--easing-smooth);
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--duration-normal) var(--easing-smooth);
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--duration-normal) var(--easing-smooth);
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* ===== TRANSITION UTILITIES ===== */
+.transition-all {
+  transition: all var(--duration-normal) var(--easing-smooth);
+}
+
+.transition-fast {
+  transition: all var(--duration-fast) ease-out;
+}
+
+.transition-slow {
+  transition: all var(--duration-slow) var(--easing-smooth);
+}
+
+/* ===== HOVER EFFECTS ===== */
+.hover-lift {
+  transition: all var(--duration-fast) ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hover-glow {
+  transition: all var(--duration-fast) ease-out;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.hover-scale {
+  transition: all var(--duration-fast) var(--easing-smooth);
+  transform: scale(1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.5);
+}
+
+/* ===== SELECTION ===== */
+::selection {
+  background: rgba(59, 130, 246, 0.2);
+  color: #1f2937;
+}
+
+/* ===== FOCUS STYLES ===== */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* ===== SMOOTH SCROLL ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== RESPONSIVE ANIMATIONS ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --duration-fast: 100ms;
+    --duration-normal: 200ms;
+    --duration-slow: 300ms;
+  }
+}

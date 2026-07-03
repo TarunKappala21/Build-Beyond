@@ -1,0 +1,288 @@
+/* Worker Profile Edit - Namespaced with wkpe- prefix */
+
+.wkpe-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.wkpe-back-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wkpe-back-btn:hover {
+  background-color: #2980b9;
+  transform: translateX(-3px);
+}
+
+.wkpe-back-btn i {
+  font-size: 14px;
+}
+
+.wkpe-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  color: #2c3e50;
+}
+
+.wkpe-form-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.wkpe-form-section:last-child {
+  border-bottom: none;
+}
+
+.wkpe-form-section h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.wkpe-form-group {
+  margin-bottom: 20px;
+}
+
+.wkpe-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.wkpe-form-group input,
+.wkpe-form-group textarea,
+.wkpe-form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wkpe-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.wkpe-form-group input:focus,
+.wkpe-form-group textarea:focus {
+  outline: none;
+  border-color: #2c3e50;
+  box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+}
+
+/* Profile Image */
+.wkpe-profile-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.wkpe-profile-preview {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.wkpe-profile-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wkpe-profile-preview span {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Checkboxes */
+.wkpe-checkbox-item {
+  margin-bottom: 10px;
+}
+
+.wkpe-checkbox-item input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+.wkpe-checkbox-item label {
+  display: inline;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* Projects */
+.wkpe-projects-container {
+  margin-top: 20px;
+}
+
+.wkpe-project-item {
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
+
+.wkpe-project-image-preview {
+  width: 100%;
+  height: 200px;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.wkpe-project-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wkpe-project-image-preview span {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Buttons */
+.wkpe-add-project-btn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.wkpe-add-project-btn:hover {
+  background-color: #219653;
+}
+
+.wkpe-remove-project-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.wkpe-remove-project-btn:hover {
+  background-color: #c0392b;
+}
+
+.wkpe-submit-btn {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  margin-top: 20px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 600;
+}
+
+.wkpe-submit-btn:hover {
+  background-color: #1a2634;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wkpe-container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .wkpe-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .wkpe-form-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .wkpe-profile-preview {
+    width: 120px;
+    height: 120px;
+  }
+
+  .wkpe-project-image-preview {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wkpe-container {
+    padding: 15px;
+  }
+
+  .wkpe-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .wkpe-form-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .wkpe-form-group input,
+  .wkpe-form-group textarea,
+  .wkpe-form-group select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .wkpe-profile-preview {
+    width: 100px;
+    height: 100px;
+  }
+
+  .wkpe-add-project-btn,
+  .wkpe-remove-project-btn,
+  .wkpe-submit-btn {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}

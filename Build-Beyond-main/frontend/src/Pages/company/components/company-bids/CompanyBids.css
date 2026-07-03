@@ -1,0 +1,144 @@
+/* src/pages/company/CompanyBids.css */
+:root {
+  --bids-primary: #004D7A;
+  --bids-primary-hover: #003355;
+  --bids-bg: #F8F9FA;
+  --bids-card: #FFFFFF;
+  --bids-text: #212529;
+  --bids-muted: #6C757D;
+  --bids-highlight: #A06700;
+  --bids-success-bg: #D4EDDA;
+  --bids-success-text: #155724;
+  --bids-warning-bg: #FFF3CD;
+  --bids-warning-text: #856404;
+  --bids-danger-bg: #F8D7DA;
+  --bids-danger-text: #721C24;
+  --bids-radius: 8px;
+  --bids-shadow: 0 4px 12px rgba(0,0,0,.08);
+  --bids-border: #D1D5DB;
+}
+
+/* ------------------------------------------------- */
+/* GLOBAL */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+body,html { background:var(--bids-bg); color:var(--bids-text); }
+
+/* ------------------------------------------------- */
+/* CONTAINER */
+.bids-container { padding:2.5rem; }
+
+/* ALERT */
+.bids-alert { padding:1.25rem 2rem; border-radius:6px; font-weight:700; margin-bottom:1.5rem; }
+.bids-alert-success { background:var(--bids-success-bg); color:var(--bids-success-text); }
+.bids-alert-danger { background:var(--bids-danger-bg); color:var(--bids-danger-text); }
+
+/* ------------------------------------------------- */
+/* NAV MENU */
+.bids-nav-menu { display:flex; margin-bottom:2.5rem; background:var(--bids-card); border-radius:var(--bids-radius);
+  overflow:hidden; border:1px solid var(--bids-border); box-shadow:var(--bids-shadow); width:fit-content; }
+.bids-nav-item { padding:1rem 2rem; cursor:pointer; transition:all .3s; font-weight:600; font-size:1.05rem;
+  color:var(--bids-muted); border-bottom:3px solid transparent; border-right:1px solid #E0E0E0; }
+.bids-nav-item:last-child { border-right:none; }
+.bids-nav-item:hover { color:var(--bids-text); background:#E9ECEF; }
+.bids-active { color:var(--bids-primary); background:#E6F0F8; box-shadow:inset 0 -3px 0 var(--bids-primary); }
+
+/* ------------------------------------------------- */
+/* SECTIONS */
+.bids-section { display:none; }
+.bids-active { display:block; }
+
+/* GRID */
+.bids-grid { display:grid; grid-template-columns:1.5fr 2.5fr; gap:2rem; align-items:start; }
+
+/* LEFT – LIST */
+.bids-left h2 { font-size:1.6rem; font-weight:700; margin-bottom:1.5rem;
+  border-bottom:2px solid var(--bids-border); padding-bottom:.5rem; }
+.bids-card { background:var(--bids-card); border-radius:var(--bids-radius); padding:1.5rem;
+  margin-bottom:1.5rem; cursor:pointer; transition:all .3s; border:1px solid var(--bids-border);
+  box-shadow:var(--bids-shadow); }
+.bids-card:hover { transform:translateY(-2px); box-shadow:0 8px 16px rgba(0,0,0,.1); border-color:#0077B6; }
+.bids-selected { border:3px solid var(--bids-primary); background:#E6F0F8; box-shadow:0 0 0 1px var(--bids-primary); }
+.bids-card-title { font-weight:700; color:var(--bids-primary); font-size:1.25rem; margin-bottom:.5rem; }
+.bids-card-subtitle { font-weight:500; font-size:.95rem; margin-bottom:.5rem; }
+.bids-card-budget { color:var(--bids-highlight); font-weight:700; font-size:1.1rem; }
+.bids-empty { padding:5rem; text-align:center; font-size:1.2rem; font-weight:600; color:var(--bids-muted); }
+
+/* RIGHT – DETAIL */
+.bids-right { position:sticky; top:2rem; }
+.bids-placeholder { min-height:500px; display:flex; flex-direction:column; align-items:center;
+  justify-content:center; border:2px dashed var(--bids-border); border-radius:var(--bids-radius);
+  background:var(--bids-card); color:var(--bids-muted); font-style:italic; }
+.bids-detail { background:var(--bids-card); border-radius:var(--bids-radius); padding:2rem;
+  border:1px solid var(--bids-border); box-shadow:var(--bids-shadow); }
+.bids-detail h2 { color:var(--bids-primary); font-weight:800; font-size:2rem;
+  border-bottom:3px solid var(--bids-border); margin-bottom:1rem; padding-bottom:.5rem; }
+.bids-detail-budget { color:var(--bids-highlight); font-weight:700; font-size:1.6rem; margin-bottom:1.5rem; }
+
+/* INFO BLOCKS */
+.bids-info { background:#F8F8F8; border-radius:6px; padding:1.5rem; margin:1.5rem 0;
+  border:1px solid #E0E0E0; }
+.bids-info h3 { font-size:1.1rem; font-weight:700; border-bottom:1px solid #E0E0E0;
+  padding-bottom:.5rem; margin-bottom:1rem; }
+.bids-info-row { padding:.75rem 0; color:var(--bids-muted); border-bottom:1px solid #F0F0F0; font-size:.95rem; }
+.bids-info-row:last-child { border-bottom:none; }
+.bids-info-row strong { color:var(--bids-primary); margin-right:.75rem; font-weight:600; min-width:150px; display:inline-block; }
+
+/* FORM */
+.bids-form h3 { margin-bottom:1rem; }
+.bids-form-group label { display:block; font-weight:600; margin-bottom:.5rem; }
+.bids-form-group input { width:100%; padding:1rem; border-radius:6px; font-size:1rem;
+  background:var(--bids-card); border:1px solid var(--bids-border); box-shadow:inset 0 1px 3px rgba(0,0,0,.05); }
+.bids-form-group input:focus { border-color:var(--bids-primary); outline:none; box-shadow:0 0 0 3px rgba(0,77,122,.1); }
+.bids-btn-primary { background:var(--bids-primary); color:#fff; padding:1rem 2.5rem;
+  border:none; border-radius:6px; font-weight:700; cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,77,122,.2); transition:all .2s; }
+.bids-btn-primary:hover { background:var(--bids-primary-hover); transform:translateY(-2px);
+  box-shadow:0 6px 15px rgba(0,77,122,.3); }
+
+/* ------------------------------------------------- */
+/* BID STATUS TAB */
+.bids-status-card { background:var(--bids-card); border:1px solid var(--bids-border);
+  border-radius:var(--bids-radius); padding:2rem; margin-bottom:2rem; box-shadow:var(--bids-shadow); }
+.bids-status-header { display:flex; justify-content:space-between; align-items:flex-start;
+  border-bottom:1px dashed var(--bids-border); padding-bottom:1rem; margin-bottom:1.5rem; }
+.bids-status-title { font-weight:700; font-size:1.35rem; }
+.bids-status-budget { color:var(--bids-primary); font-weight:700; font-size:1.15rem; }
+.bids-your-bid { margin-top:.5rem; color:var(--bids-warning-text); font-weight:700;
+  background:var(--bids-warning-bg); padding:.6rem 1rem; border-radius:4px;
+  border:1px solid var(--bids-warning-text); font-size:.95rem; }
+.bids-status-badge { padding:.6rem 1.5rem; border-radius:4px; font-weight:700;
+  min-width:120px; text-align:center; border:1px solid; }
+.bids-status-pending { background:var(--bids-warning-bg); color:var(--bids-warning-text); border-color:var(--bids-warning-text); }
+.bids-status-accepted { background:var(--bids-success-bg); color:var(--bids-success-text); border-color:var(--bids-success-text); }
+.bids-status-rejected { background:var(--bids-danger-bg); color:var(--bids-danger-text); border-color:var(--bids-danger-text); }
+
+.bids-status-grid { display:grid; grid-template-rows:repeat(2,1fr); gap:1rem; margin-bottom:1.5rem; }
+.bids-grid-item { font-size:.95rem; }
+.bids-label { color:var(--bids-muted); font-weight:500; margin-right:.5rem; }
+
+.bids-customer { margin-top:1.5rem; }
+.bids-customer-title { font-weight:700; margin-bottom:.75rem; }
+.bids-customer-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.bids-customer-grid div strong { color:var(--bids-primary); }
+
+.bids-floors { margin-top:1.5rem; }
+.bids-floors-title { font-weight:700; margin-bottom:.75rem; }
+.bids-floors-list { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:.75rem; }
+.bids-floor-badge { background:#E9ECEF; color:var(--bids-text); padding:.4rem .8rem;
+  border-radius:4px; font-size:.85rem; font-weight:600; }
+.bids-expand-btn { background:none; border:none; color:var(--bids-primary);
+  font-size:.9rem; cursor:pointer; display:flex; align-items:center; gap:.5rem; }
+.bids-expand-btn:hover { text-decoration:underline; }
+
+/* ------------------------------------------------- */
+/* RESPONSIVE */
+@media (max-width:992px) {
+  .bids-grid { grid-template-columns:1fr; }
+  .bids-right { position:static; }
+}
+@media (max-width:768px) {
+  .bids-container { padding:1.5rem; }
+  .bids-status-grid, .bids-customer-grid { grid-template-columns:1fr; }
+  .bids-nav-menu { width:100%; border-radius:0; box-shadow:none; }
+  .bids-nav-item { flex:1; padding:.75rem 1rem; font-size:.95rem; }
+}

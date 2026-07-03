@@ -1,0 +1,269 @@
+/* Styles for CompanyAddNewProject form */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --muted: #6b7280;
+  --bg: #f8f9fb;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --danger: #ef4444;
+  --success: #10b981;
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+body { background: var(--bg); }
+
+.container {
+  max-width: 900px;
+  margin: 32px auto;
+  background: var(--card);
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: #1f2937;
+}
+
+.container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 32px;
+  color: #111827;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #374151;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="file"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  color: #111827;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(82, 87, 242, 0.1);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+input[type="file"] {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Progress Range Styling */
+.progress-container {
+  margin-top: 10px;
+}
+
+.progress-input {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.progress-input input[type="range"] {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.progress-input input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-input input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.progress-value {
+  min-width: 50px;
+  text-align: right;
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 16px;
+}
+
+/* Update Container */
+.update-container {
+  border: 1px solid #dbeafe;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f0f9ff;
+  margin-top: 12px;
+}
+
+.update-container .form-group {
+  margin-bottom: 16px;
+}
+
+.update-container .form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Button Styles */
+.btn-container {
+  margin-top: 32px;
+  display: flex;
+  gap: 12px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(82, 87, 242, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+/* Validation Styles */
+.validation-summary {
+  background: #fef2f2;
+  border: 1px solid #fee2e2;
+  color: #991b1b;
+  padding: 16px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.validation-summary p {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.validation-summary ul {
+  margin-left: 20px;
+  line-height: 1.6;
+}
+
+.validation-summary li {
+  margin-bottom: 4px;
+}
+
+.error-message {
+  color: var(--danger);
+  font-size: 13px;
+  margin-top: 6px;
+  display: none;
+}
+
+.input-error {
+  border-color: var(--danger) !important;
+  background: #fef2f2;
+}
+
+.input-success {
+  border-color: var(--success) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 24px;
+    margin: 16px;
+  }
+
+  .container h1 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .progress-input {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .progress-value {
+    text-align: left;
+  }
+}

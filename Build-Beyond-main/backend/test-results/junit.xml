@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="route smoke: auth POST /signup" time="0.043092" classname="test"/>
+	<testcase name="route smoke: auth POST /login" time="0.008418" classname="test"/>
+	<testcase name="route smoke: auth GET /session" time="0.005014" classname="test"/>
+	<testcase name="route smoke: auth GET /2fa/status" time="0.004847" classname="test"/>
+	<testcase name="route smoke: auth GET /logout" time="0.004514" classname="test"/>
+	<testcase name="route smoke: admin POST /admin/login" time="0.438363" classname="test"/>
+	<testcase name="route smoke: admin GET /admindashboard" time="0.006182" classname="test"/>
+	<testcase name="route smoke: admin GET /admin/settings" time="0.004981" classname="test"/>
+	<testcase name="route smoke: admin GET /admin/analytics" time="0.006796" classname="test"/>
+	<testcase name="route smoke: company GET /companydashboard" time="0.041434" classname="test"/>
+	<testcase name="route smoke: company GET /companyrevenue" time="0.005013" classname="test"/>
+	<testcase name="route smoke: company POST /companytoworker" time="0.005275" classname="test"/>
+	<testcase name="route smoke: company POST /company/password/update" time="0.004639" classname="test"/>
+	<testcase name="route smoke: customer GET /home" time="0.005453" classname="test"/>
+	<testcase name="route smoke: customer GET /architect" time="0.005714" classname="test"/>
+	<testcase name="route smoke: customer GET /job_status" time="0.004407" classname="test"/>
+	<testcase name="route smoke: customer POST /customer/password/update" time="0.005270" classname="test"/>
+	<testcase name="route smoke: customer GET /customer/payment-history" time="0.005670" classname="test"/>
+	<testcase name="route smoke: worker GET /worker/dashboard" time="0.004713" classname="test"/>
+	<testcase name="route smoke: worker GET /worker/jobs" time="0.004323" classname="test"/>
+	<testcase name="route smoke: worker POST /worker/submit-proposal" time="0.004809" classname="test"/>
+	<testcase name="route smoke: worker POST /worker/password/update" time="0.004522" classname="test"/>
+	<testcase name="route smoke: project GET /projects" time="0.004876" classname="test"/>
+	<testcase name="route smoke: project GET /projects/123" time="0.005082" classname="test"/>
+	<testcase name="route smoke: project POST /customer/pay-milestone" time="0.004934" classname="test"/>
+	<testcase name="route smoke: project GET /company/notifications" time="0.003818" classname="test"/>
+	<testcase name="route smoke: payment POST /company/create-order" time="0.004560" classname="test"/>
+	<testcase name="route smoke: payment GET /company/summary/p1" time="0.003952" classname="test"/>
+	<testcase name="route smoke: payment GET /worker/transactions" time="0.003511" classname="test"/>
+	<testcase name="route smoke: platform-manager POST /platform-manager/login" time="0.005183" classname="test"/>
+	<testcase name="route smoke: platform-manager GET /platform-manager/dashboard" time="0.004683" classname="test"/>
+	<testcase name="route smoke: platform-manager GET /admin/platform-managers" time="0.006545" classname="test"/>
+	<testcase name="route smoke: platform-manager POST /platform-manager/company-payments/p1/25/collect" time="0.004045" classname="test"/>
+	<testcase name="route smoke: chat GET /chat/room/project-1/design" time="0.004440" classname="test"/>
+	<testcase name="route smoke: chat GET /chat/room/2/construction" time="0.003813" classname="test"/>
+	<testcase name="route smoke: chat GET /chat/room-1" time="0.005324" classname="test"/>
+	<testcase name="route smoke: review POST /customer/review" time="0.006251" classname="test"/>
+	<testcase name="route smoke: review POST /worker/review" time="0.004547" classname="test"/>
+	<testcase name="route smoke: review GET /project-review-status/design/p1" time="0.005105" classname="test"/>
+	<testcase name="route smoke: complaint POST /" time="0.004682" classname="test"/>
+	<testcase name="route smoke: complaint GET /unviewed/count" time="0.003260" classname="test"/>
+	<testcase name="route smoke: complaint GET /project-1" time="0.003510" classname="test"/>
+	<testcase name="route smoke: complaint POST /complaint-1/reply" time="0.003295" classname="test"/>
+	<testcase name="parseOrigins splits comma-separated urls and trims whitespace" time="0.002431" classname="test"/>
+	<testcase name="parseOrigins returns empty array for empty input" time="0.000269" classname="test"/>
+	<testcase name="parseOrigins trims trailing and leading spaces" time="0.000218" classname="test"/>
+	<testcase name="parseOrigins removes empty entries between commas" time="0.000219" classname="test"/>
+	<testcase name="parseOrigins keeps http scheme origin" time="0.000358" classname="test"/>
+	<testcase name="parseOrigins keeps https scheme origin" time="0.000261" classname="test"/>
+	<testcase name="parseOrigins handles path suffix origin token as-is" time="0.000170" classname="test"/>
+	<testcase name="parseOrigins handles query suffix token as-is" time="0.001288" classname="test"/>
+	<testcase name="parseOrigins handles hash suffix token as-is" time="0.000508" classname="test"/>
+	<testcase name="parseOrigins handles uppercase host characters" time="0.000594" classname="test"/>
+	<testcase name="parseOrigins preserves port numbers" time="0.000297" classname="test"/>
+	<testcase name="parseOrigins accepts multiple localhost origins" time="0.000231" classname="test"/>
+	<testcase name="parseOrigins returns empty array when input is only whitespace" time="0.000128" classname="test"/>
+	<testcase name="parseOrigins ignores newline and tab around values after trim" time="0.000135" classname="test"/>
+	<testcase name="parseOrigins handles single token with internal spaces untouched" time="0.000117" classname="test"/>
+	<testcase name="parseOrigins with null input returns empty array" time="0.000109" classname="test"/>
+	<testcase name="parseOrigins with undefined input returns empty array" time="0.000119" classname="test"/>
+	<testcase name="parseOrigins with numeric input coerces to string" time="0.000121" classname="test"/>
+	<testcase name="parseOrigins keeps duplicate values (dedupe happens elsewhere)" time="0.000116" classname="test"/>
+	<!-- tests 62 -->
+	<!-- suites 0 -->
+	<!-- pass 62 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 1055.1375 -->
+</testsuites>

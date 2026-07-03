@@ -1,0 +1,538 @@
+/* Modern Revenue Page Styles */
+:root {
+  --revenue-primary: #1a73e8;
+  --revenue-primary-dark: #1557b0;
+  --revenue-success: #4caf50;
+  --revenue-warning: #ff9800;
+  --revenue-danger: #f44336;
+  --revenue-bg: #f5f7fa;
+  --revenue-card-bg: #ffffff;
+  --revenue-text: #2c3e50;
+  --revenue-text-light: #6c757d;
+  --revenue-border: #e1e8ed;
+  --revenue-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --revenue-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--revenue-bg);
+  color: var(--revenue-text);
+}
+
+.revenue-main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.revenue-loading,
+.revenue-error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.1rem;
+  color: var(--revenue-text-light);
+}
+
+.revenue-error {
+  color: var(--revenue-danger);
+}
+
+/* Header */
+.revenue-header {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.revenue-page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--revenue-text);
+  margin-bottom: 0.5rem;
+}
+
+.revenue-subtitle {
+  color: var(--revenue-text-light);
+  font-size: 0.95rem;
+}
+
+.revenue-refresh-btn {
+  background: var(--revenue-primary);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--revenue-shadow);
+  white-space: nowrap;
+}
+
+.revenue-refresh-btn:hover {
+  background: var(--revenue-primary-dark);
+  transform: translateY(-1px);
+}
+
+.revenue-refresh-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Stats Grid */
+.revenue-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.revenue-stat-card {
+  background: var(--revenue-card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--revenue-shadow);
+  display: flex;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  border: 1px solid var(--revenue-border);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.revenue-stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--revenue-shadow-hover);
+}
+
+.revenue-stat-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.revenue-stat-content {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.revenue-stat-content h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--revenue-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.revenue-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--revenue-text);
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+
+.revenue-stat-subtitle {
+  font-size: 0.8rem;
+  color: var(--revenue-text-light);
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.revenue-stat-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--revenue-border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.revenue-stat-progress-bar {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Analytics Section */
+.revenue-analytics-section {
+  background: var(--revenue-card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--revenue-shadow);
+}
+
+.revenue-section-header {
+  margin-bottom: 1.25rem;
+}
+
+.revenue-section-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--revenue-text);
+  margin-bottom: 0.25rem;
+}
+
+.revenue-section-header p {
+  font-size: 0.875rem;
+  color: var(--revenue-text-light);
+  margin: 0;
+}
+
+/* Phase Grid */
+.revenue-phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.revenue-phase-card {
+  background: var(--revenue-bg);
+  border: 1px solid var(--revenue-border);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.revenue-phase-card:hover {
+  border-color: var(--revenue-primary);
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.1);
+}
+
+.revenue-phase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.revenue-phase-header h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--revenue-text);
+  margin: 0;
+}
+
+.revenue-badge {
+  background: var(--revenue-primary);
+  color: white;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.revenue-phase-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.revenue-amount-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.revenue-amount-row span {
+  color: var(--revenue-text-light);
+}
+
+.revenue-amount-row strong {
+  color: var(--revenue-text);
+}
+
+.revenue-amount-row.revenue-received strong {
+  color: var(--revenue-success);
+}
+
+.revenue-amount-row.revenue-pending strong {
+  color: var(--revenue-danger);
+}
+
+.revenue-phase-progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.revenue-phase-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--revenue-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.revenue-phase-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--revenue-primary), var(--revenue-success));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.revenue-progress-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--revenue-text-light);
+  min-width: 35px;
+  text-align: right;
+}
+
+/* Projects Section */
+.revenue-projects-section {
+  background: var(--revenue-card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--revenue-shadow);
+}
+
+.revenue-project-count {
+  background: var(--revenue-bg);
+  color: var(--revenue-text-light);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Table */
+.revenue-table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.revenue-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.revenue-table thead {
+  background: var(--revenue-bg);
+}
+
+.revenue-table th {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--revenue-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--revenue-border);
+}
+
+.revenue-table-row {
+  border-bottom: 1px solid var(--revenue-border);
+  transition: background 0.2s ease;
+}
+
+.revenue-table-row:hover {
+  background: var(--revenue-bg);
+}
+
+.revenue-table td {
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.revenue-project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.revenue-project-info strong {
+  color: var(--revenue-text);
+  font-weight: 600;
+}
+
+.revenue-client-name {
+  font-size: 0.8rem;
+  color: var(--revenue-text-light);
+}
+
+.revenue-status-badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.revenue-status-badge.status-accepted {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.revenue-status-badge.status-completed {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.revenue-amount {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.revenue-amount.revenue-received {
+  color: var(--revenue-success);
+}
+
+.revenue-amount.revenue-pending {
+  color: var(--revenue-danger);
+}
+
+.revenue-progress-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.revenue-mini-progress {
+  width: 60px;
+  height: 6px;
+  background: var(--revenue-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.revenue-mini-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.revenue-progress-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--revenue-text-light);
+}
+
+.revenue-details-btn {
+  background: var(--revenue-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.revenue-details-btn:hover {
+  background: var(--revenue-primary-dark);
+  transform: translateY(-1px);
+}
+
+/* Empty State */
+.revenue-empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--revenue-text-light);
+}
+
+.revenue-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.revenue-empty-state h3 {
+  font-size: 1.25rem;
+  color: var(--revenue-text);
+  margin-bottom: 0.5rem;
+}
+
+.revenue-empty-state p {
+  color: var(--revenue-text-light);
+}
+
+/* Modal */
+.revenue-modal {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.revenue-modal-content {
+  background-color: var(--revenue-card-bg);
+  padding: 2rem;
+  width: 90%;
+  max-width: 900px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.revenue-close-modal {
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+  font-size: 2rem;
+  color: var(--revenue-text-light);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.revenue-close-modal:hover {
+  color: var(--revenue-text);
+}
+
+.revenue-modal-project-name {
+  margin-bottom: 2rem;
+  color: var(--revenue-primary);
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--revenue-border);
+  padding-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .revenue-main-container {
+    padding: 1rem;
+  }
+
+  .revenue-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .revenue-phase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .revenue-table {
+    font-size: 0.85rem;
+  }
+
+  .revenue-table th,
+  .revenue-table td {
+    padding: 0.75rem 0.5rem;
+  }
+}

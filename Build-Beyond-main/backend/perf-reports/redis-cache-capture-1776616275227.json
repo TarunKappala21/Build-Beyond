@@ -1,0 +1,37 @@
+{
+  "label": "capture-1776616275227",
+  "capturedAt": "2026-04-19T16:31:17.535Z",
+  "runConfig": {
+    "baseUrl": "http://localhost:3000",
+    "endpoint": "/api/admin/revenue/platform-intelligence?timeframe=month&page=1&limit=20",
+    "requestCount": 30,
+    "loginUsed": true,
+    "tokenProvided": false
+  },
+  "latency": {
+    "count": 30,
+    "minMs": 60.884,
+    "maxMs": 385.459,
+    "avgMs": 74.288,
+    "p50Ms": 62.076,
+    "p95Ms": 95.077,
+    "p99Ms": 385.459
+  },
+  "statusCount": {
+    "200": 30
+  },
+  "redis": {
+    "stats": {
+      "hits": 29,
+      "misses": 1,
+      "sets": 1,
+      "invalidateCalls": 0,
+      "invalidatedKeys": 0,
+      "skippedNoRedis": 0,
+      "errors": 0,
+      "totalOps": 31
+    },
+    "hitRatePct": 96.67,
+    "cacheLookups": 30
+  }
+}

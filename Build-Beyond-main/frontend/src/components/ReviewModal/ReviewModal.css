@@ -1,0 +1,236 @@
+/* ReviewModal.css */
+
+.review-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.review-modal-content {
+  background: white;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.review-modal-header {
+  padding: 24px 28px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.review-modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.review-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.review-modal-close:hover {
+  background-color: #f3f4f6;
+  color: #1f2937;
+}
+
+.review-modal-body {
+  padding: 28px;
+}
+
+.review-project-name {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.review-subtitle {
+  margin: 0 0 28px 0;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.review-rating-section {
+  margin-bottom: 28px;
+}
+
+.review-rating-section label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #374151;
+}
+
+.review-stars {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.review-stars i {
+  font-size: 36px;
+  color: #d1d5db;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.review-stars i:hover,
+.review-stars i.active {
+  color: #fbbf24;
+  transform: scale(1.1);
+}
+
+.review-rating-text {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.review-comment-section {
+  margin-bottom: 28px;
+}
+
+.review-comment-section label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #374151;
+}
+
+.review-comment-section textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.review-comment-section textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.review-char-count {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+.review-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.review-btn-cancel,
+.review-btn-submit {
+  padding: 11px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.review-btn-cancel {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.review-btn-cancel:hover:not(:disabled) {
+  background-color: #e5e7eb;
+}
+
+.review-btn-submit {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+}
+
+.review-btn-submit:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.review-btn-cancel:disabled,
+.review-btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Scrollbar styles */
+.review-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.review-modal-content::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.review-modal-content::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.review-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}

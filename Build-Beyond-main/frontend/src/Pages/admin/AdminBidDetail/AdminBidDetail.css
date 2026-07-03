@@ -1,0 +1,64 @@
+.bid360-page {
+  background: linear-gradient(160deg, #eff6ff 0%, #ecfeff 100%);
+}
+
+.bid360-summary-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.summary-card.red .summary-accent {
+  background: #ef4444;
+}
+
+.summary-card.rose .summary-accent {
+  background: #f43f5e;
+}
+
+.summary-card.emerald .summary-accent {
+  background: #059669;
+}
+
+.bid360-inline-btn {
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.bid360-table-link {
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
+.bid360-wide-field {
+  grid-column: 1 / -1;
+}
+
+.error-state {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.error-state h2 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.error-state p {
+  margin: 0 0 16px;
+  color: #64748b;
+}
+
+@media (max-width: 1400px) {
+  .bid360-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .bid360-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

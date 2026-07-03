@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="3" failures="1" errors="0" time="2.709">
+    <testsuite name="src/App.routes.test.jsx" timestamp="2026-04-21T03:22:00.511Z" hostname="Prudhvi-2412" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/App.routes.test.jsx" name="src/App.routes.test.jsx" time="0">
+            <failure message="Transform failed with 1 error:
+C:/Users/My Hero/Desktop/GitClones/FDFED-React-App/frontend/src/App.jsx:6:23: ERROR: Unterminated string literal" type="Error">
+Error: Transform failed with 1 error:
+C:/Users/My Hero/Desktop/GitClones/FDFED-React-App/frontend/src/App.jsx:6:23: ERROR: Unterminated string literal
+  Plugin: vite:esbuild
+  File: C:/Users/My Hero/Desktop/GitClones/FDFED-React-App/frontend/src/App.jsx:6:23
+  
+  Unterminated string literal
+  4  |  import Customer from &quot;./Pages/customer/Customer&quot;;
+  5  |  import Company from &quot;./Pages/company/Company&quot;;
+  6  |  import Worker from &quot;./;
+     |                         ^
+  7  |  import ProtectedRoute from &quot;./components/ProtectedRoute&quot;;
+  8  |  import AdminProtectedRoute from &quot;./components/AdminProtectedRoute&quot;;
+  
+ ❯ failureErrorWithLog node_modules/vitest/node_modules/esbuild/lib/main.js:1472:15
+ ❯ node_modules/vitest/node_modules/esbuild/lib/main.js:755:50
+ ❯ responseCallbacks.&lt;computed&gt; node_modules/vitest/node_modules/esbuild/lib/main.js:622:9
+ ❯ handleIncomingPacket node_modules/vitest/node_modules/esbuild/lib/main.js:677:12
+ ❯ Socket.readFromStdout node_modules/vitest/node_modules/esbuild/lib/main.js:600:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { __vitest_rollup_error__: { plugin: &apos;vite:esbuild&apos;, id: &apos;C:/Users/My Hero/Desktop/GitClones/FDFED-React-App/frontend/src/App.jsx&apos;, loc: { column: 23, file: &apos;C:/Users/My Hero/Desktop/GitClones/FDFED-React-App/frontend/src/App.jsx&apos;, length: +0, line: 6, lineText: &apos;import Worker from &quot;./;&apos;, namespace: &apos;&apos;, suggestion: &apos;&apos; }, frame: &apos;\n\u001b[33mUnterminated string literal\u001b[39m\n4  |  import Customer from &quot;./Pages/customer/Customer&quot;;\n5  |  import Company from &quot;./Pages/company/Company&quot;;\n6  |  import Worker from &quot;./;\n   |                         ^\n7  |  import ProtectedRoute from &quot;./components/ProtectedRoute&quot;;\n8  |  import AdminProtectedRoute from &quot;./components/AdminProtectedRoute&quot;;\n&apos; } }
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="src/api/axiosInstance.test.js" timestamp="2026-04-21T03:22:00.521Z" hostname="Prudhvi-2412" tests="2" failures="0" errors="0" skipped="0" time="0.003252">
+        <testcase classname="src/api/axiosInstance.test.js" name="axiosInstance &gt; enables credentials by default" time="0.0015275">
+        </testcase>
+        <testcase classname="src/api/axiosInstance.test.js" name="axiosInstance &gt; has a string baseURL value" time="0.0003285">
+        </testcase>
+    </testsuite>
+</testsuites>

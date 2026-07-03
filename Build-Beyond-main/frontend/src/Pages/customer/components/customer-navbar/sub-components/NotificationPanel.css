@@ -1,0 +1,174 @@
+/* src/Pages/customer/components/customer-navbar/sub-components/NotificationPanel.css */
+.customer_notification_panel {
+  position: absolute;
+  right: 0;
+  top: 70px;
+  width: 340px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.customer_notification_panel_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.customer_notification_panel_title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.customer_notification_panel_markRead {
+  border: none;
+  background: transparent;
+  color: #0d1a44;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  font-weight: 600;
+}
+
+.customer_notification_panel_markRead:disabled {
+  color: #94a3b8;
+  cursor: default;
+}
+
+.customer_notification_panel_item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  cursor: default;
+  transition: background-color 0.2s ease;
+}
+
+.customer_notification_panel_item_active {
+  cursor: pointer;
+}
+
+.customer_notification_panel_list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.customer_notification_panel_item:hover {
+  background-color: #f8fafc;
+}
+
+.customer_notification_panel_content {
+  flex: 1;
+}
+
+.customer_notification_panel_content_active {
+  cursor: pointer;
+}
+
+.customer_notification_panel_content_inactive {
+  cursor: default;
+  opacity: 0.62;
+}
+
+.customer_notification_panel_marker {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f59e0b;
+  margin-top: 5px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.customer_notification_panel_item_read .customer_notification_panel_marker {
+  background: #cbd5e1;
+}
+
+.customer_notification_panel_itemTick {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #0d1a44;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.customer_notification_panel_itemTick:hover {
+  background: #e2e8f0;
+}
+
+.customer_notification_panel_item_inactive
+  .customer_notification_panel_itemTick {
+  background: #0d1a44;
+  color: #ffffff;
+  border-color: #0d1a44;
+}
+
+.customer_notification_panel_item_inactive .customer_notification_panel_marker {
+  background: #cbd5e1;
+}
+
+.customer_notification_panel_item_inactive .customer_notification_panel_text {
+  color: #64748b;
+}
+
+.customer_notification_panel_text {
+  font-size: 14px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.customer_notification_panel_message {
+  font-size: 13px;
+  color: #475569;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.customer_notification_panel_time {
+  font-size: 12px;
+  color: #888;
+}
+
+.customer_notification_panel_item_inactive .customer_notification_panel_time {
+  color: #94a3b8;
+}
+
+.customer_notification_panel_footer {
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+}
+
+.customer_notification_panel_viewAll {
+  color: #0d1a44;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.customer_notification_panel_empty {
+  padding: 20px 15px;
+  color: #64748b;
+  font-size: 14px;
+}

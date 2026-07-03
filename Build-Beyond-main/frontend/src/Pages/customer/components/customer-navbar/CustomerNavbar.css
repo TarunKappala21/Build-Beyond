@@ -1,0 +1,66 @@
+/* src/Pages/customer/components/customer-navbar/CustomerNavbar.css */
+.customer_navbar_navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0d1a44;
+  color: white;
+  padding: 0px 10px;
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.customer_navbar_logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.customer_navbar_logo:hover {
+  color: #e9c46a;
+}
+
+.customer_navbar_navLinks {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.customer_navbar_navItem {
+  margin: 0 15px;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.customer_navbar_navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0 5px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.customer_navbar_navLink:hover {
+  color: #e9c46a;
+}
+
+.customer_navbar_rightSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.customer_navbar_profileIcon a {
+  color: white;
+}

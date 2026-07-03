@@ -1,0 +1,445 @@
+/* src/Pages/customer/components/customer-payments/CustomerPaymentHistory.css */
+
+:root {
+  --primary-color: #1a237e;
+  --secondary-color: #e67e22;
+  --success-color: #27ae60;
+  --danger-color: #e74c3c;
+  --light-color: #f9f9f9;
+  --dark-color: #333;
+  --border-color: #ddd;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --transition: all 0.3s ease;
+}
+
+.coph-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  min-height: calc(100vh - 80px);
+}
+
+.coph-header {
+  margin-bottom: 40px;
+}
+
+.coph-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 0 0 8px 0;
+}
+
+.coph-header p {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+/* Stats Cards */
+.coph-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.coph-stat-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.coph-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.coph-stat-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.coph-stat-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.coph-stat-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.coph-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+/* Filters */
+.coph-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.coph-filter-btn {
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark-color);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.coph-filter-btn:hover {
+  background: var(--light-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.coph-filter-btn.active {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Payments Container */
+.coph-payments-container {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.coph-payments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.coph-type-section {
+  border: 1px solid #e7ebf3;
+  border-radius: 12px;
+  padding: 14px;
+  background: #fcfdff;
+}
+
+.coph-type-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #eef2f7;
+  padding-bottom: 10px;
+}
+
+.coph-type-header h3 {
+  margin: 0;
+  color: var(--primary-color);
+  font-size: 18px;
+}
+
+.coph-type-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.coph-type-header strong {
+  font-size: 17px;
+  color: #1f2a6c;
+}
+
+.coph-payment-card {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: var(--light-color);
+  border-radius: 10px;
+  border-left: 4px solid var(--primary-color);
+  transition: var(--transition);
+}
+
+.coph-payment-card:hover {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateX(4px);
+}
+
+.coph-notification-highlight {
+  border-left-color: #f59e0b !important;
+  box-shadow:
+    0 0 0 3px rgba(245, 158, 11, 0.22),
+    0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  animation: coph-notification-pulse 3.5s ease-out 1;
+}
+
+@keyframes coph-notification-pulse {
+  0% {
+    background-color: rgba(245, 158, 11, 0.16);
+  }
+  100% {
+    background-color: var(--light-color);
+  }
+}
+
+.coph-payment-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(26, 35, 126, 0.1),
+    rgba(26, 35, 126, 0.2)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.coph-payment-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.coph-payment-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.coph-payment-main h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 6px;
+}
+
+.coph-project-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(26, 35, 126, 0.35);
+}
+
+.coph-project-link:hover {
+  color: #0f1a66;
+  border-bottom-color: rgba(15, 26, 102, 0.55);
+}
+
+.coph-purpose-text {
+  margin: 0;
+  font-size: 13px;
+  color: #51607a;
+}
+
+.coph-main-badges {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.coph-type-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.coph-type-architect {
+  background: rgba(37, 99, 235, 0.12);
+  color: #1d4ed8;
+}
+
+.coph-type-interior {
+  background: rgba(124, 58, 237, 0.12);
+  color: #6d28d9;
+}
+
+.coph-type-company {
+  background: rgba(6, 148, 162, 0.14);
+  color: #0f766e;
+}
+
+.coph-type-other {
+  background: rgba(107, 114, 128, 0.15);
+  color: #374151;
+}
+
+.coph-status-badge {
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.coph-status-completed {
+  background: rgba(39, 174, 96, 0.1);
+  color: var(--success-color);
+}
+
+.coph-status-pending {
+  background: rgba(230, 126, 34, 0.1);
+  color: var(--secondary-color);
+}
+
+.coph-status-failed {
+  background: rgba(231, 76, 60, 0.1);
+  color: var(--danger-color);
+}
+
+.coph-status-refunded {
+  background: rgba(155, 89, 182, 0.1);
+  color: #9b59b6;
+}
+
+.coph-payment-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.coph-payment-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+}
+
+.coph-milestone-badge {
+  padding: 3px 10px;
+  background: rgba(26, 35, 126, 0.1);
+  color: var(--primary-color);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.coph-payment-amount {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.coph-amount-main {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+}
+
+.coph-amount-fee {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Loading State */
+.coph-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.coph-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: coph-spin 0.8s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes coph-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.coph-loading p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* No Payments State */
+.coph-no-payments {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.coph-no-payments svg {
+  margin-bottom: 20px;
+}
+
+.coph-no-payments h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0 0 8px 0;
+}
+
+.coph-no-payments p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .coph-container {
+    padding: 24px 16px;
+  }
+
+  .coph-header h1 {
+    font-size: 26px;
+  }
+
+  .coph-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .coph-payment-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .coph-payment-amount {
+    width: 100%;
+    text-align: left;
+  }
+
+  .coph-filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+  .coph-filter-btn {
+    white-space: nowrap;
+  }
+}

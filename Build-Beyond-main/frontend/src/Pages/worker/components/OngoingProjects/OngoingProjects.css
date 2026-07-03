@@ -1,0 +1,1452 @@
+/* Worker Ongoing Projects - Namespaced with wkop- prefix */
+
+.wkop-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.wkop-page-header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+}
+
+/* Navigation Tabs */
+.wkop-nav-tabs {
+  display: flex;
+  list-style: none;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.wkop-nav-link {
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: var(--transition);
+}
+
+.wkop-nav-link.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--secondary-color);
+}
+
+.wkop-nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* Tab Content */
+.wkop-tab-content {
+  animation: wkopFadeIn 0.5s ease;
+}
+
+@keyframes wkopFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wkop-tab-pane {
+  display: block;
+}
+
+/* Project Card */
+.wkop-project-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.wkop-project-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.wkop-project-header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.wkop-project-header h3 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.wkop-header-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.wkop-btn-simple {
+  background: #f0f9ff;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.wkop-btn-simple:hover {
+  background: #e0f2fe;
+  border-color: #7dd3fc;
+  color: #0c4a6e;
+}
+
+.wkop-btn-chat {
+  background: #e879f9;
+  border-color: #f5d0fe;
+  color: #701a75;
+}
+
+.wkop-btn-chat:hover {
+  background: #f0abfc;
+  border-color: #e879f9;
+  color: #581c87;
+}
+
+.wkop-project-body {
+  padding: 1.5rem;
+}
+
+/* Regular Update Form Styles */
+.wkop-update-form {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.wkop-update-form .wkop-form-group {
+  margin-bottom: 1rem;
+}
+
+.wkop-update-form .wkop-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #374151;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.wkop-update-form textarea {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.wkop-update-form textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.wkop-update-form input[type="file"] {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.wkop-btn-update {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.wkop-btn-update:hover {
+  background: #059669;
+}
+
+/* Project Updates Display Styles */
+.wkop-updates-section {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.wkop-updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wkop-update-item {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.wkop-update-header {
+  margin-bottom: 0.75rem;
+}
+
+.wkop-update-date {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.wkop-update-content p {
+  margin: 0;
+  color: #374151;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.wkop-update-image {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.wkop-update-image img {
+  max-width: 400px;
+  max-height: 300px;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+/* Combined Activity Timeline Styles */
+.wkop-activity-section {
+  padding: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.wkop-activity-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+.wkop-activity-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.wkop-activity-type-badge {
+  margin-bottom: 0.75rem;
+}
+
+.wkop-badge-milestone {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.wkop-badge-update {
+  background: #10b981;
+  color: white;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.wkop-milestone-activity {
+  border-left: 4px solid #667eea;
+}
+
+.wkop-milestone-activity.wkop-milestone-pending {
+  border-left-color: #f59e0b;
+}
+
+.wkop-milestone-activity.wkop-milestone-approved {
+  border-left-color: #10b981;
+}
+
+.wkop-milestone-activity.wkop-milestone-rejected {
+  border-left-color: #ef4444;
+}
+
+.wkop-update-activity {
+  border-left: 4px solid #10b981;
+}
+
+.wkop-activity-header {
+  margin-bottom: 0.75rem;
+}
+
+.wkop-activity-timestamp {
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.wkop-activity-main-content {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.wkop-activity-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.wkop-activity-content p {
+  margin: 0;
+  color: #374151;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.wkop-activity-image {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9fafb;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.wkop-activity-image img {
+  max-width: 200px;
+  max-height: 150px;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+  object-fit: contain;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.wkop-activity-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Lightbox Modal Styles */
+.wkop-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  cursor: pointer;
+}
+
+.wkop-lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: default;
+}
+
+.wkop-lightbox-content img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.wkop-lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.wkop-lightbox-close:hover {
+  background: #f3f4f6;
+  transform: scale(1.1);
+}
+
+.wkop-section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+/* Update Form */
+.wkop-update-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  min-height: 100px;
+  margin-bottom: 0.75rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  resize: vertical;
+  transition: var(--transition);
+}
+
+.wkop-update-form textarea:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.wkop-form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wkop-form-actions input[type="file"] {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Buttons */
+.wkop-btn {
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.wkop-btn-primary {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.wkop-btn-primary:hover {
+  background-color: #16a085;
+  transform: translateY(-2px);
+}
+
+.wkop-btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.wkop-btn-outline:hover {
+  background-color: #f7fafc;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Empty State */
+.wkop-empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-light);
+}
+
+.wkop-empty-state h3 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+/* Project Footer */
+.wkop-project-footer {
+  padding: 1rem 1.5rem;
+  background-color: #f9fafb;
+  border-top: 1px solid var(--border-color);
+  text-align: right;
+}
+
+.wkop-btn-complete {
+  background-color: #27ae60;
+  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+.wkop-btn-complete:hover {
+  background-color: #229954;
+  transform: translateY(-2px);
+}
+
+.wkop-btn-complete i {
+  font-size: 1.1rem;
+}
+
+/* Modal Styles */
+.wkop-modal {
+  display: flex;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  align-items: center;
+  justify-content: center;
+}
+
+.wkop-modal-content {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.wkop-modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: #f7fafc;
+}
+
+.wkop-modal-header h2 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+}
+
+.wkop-modal-body {
+  padding: 1.5rem;
+}
+
+.wkop-close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.wkop-close-modal:hover {
+  color: var(--primary-color);
+}
+
+/* Modal Sections */
+.wkop-modal-section {
+  margin-bottom: 1.5rem;
+}
+
+.wkop-modal-section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.wkop-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.wkop-modal-detail-item {
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+
+.wkop-modal-detail-item strong {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.wkop-modal-section p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Update History */
+.wkop-update-history {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.wkop-update-item {
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 0.5rem;
+}
+
+.wkop-update-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.wkop-update-item p {
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.wkop-update-item small {
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+/* Inspiration Images */
+.wkop-inspiration-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.wkop-inspiration-images img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.wkop-inspiration-images img:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow);
+}
+
+/* Milestone Timeline Styles */
+.wkop-milestones-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.wkop-milestone-item {
+  background: white;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  padding: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.wkop-milestone-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.wkop-milestone-approved {
+  border-color: #4caf50;
+  background: linear-gradient(135deg, #f1f8f4 0%, #ffffff 100%);
+}
+
+.wkop-milestone-pending {
+  border-color: #ff9800;
+  background: linear-gradient(135deg, #fff8f0 0%, #ffffff 100%);
+}
+
+.wkop-milestone-rejected {
+  border-color: #f44336;
+  background: linear-gradient(135deg, #ffebee 0%, #ffffff 100%);
+}
+
+.wkop-milestone-revision-requested {
+  border-color: #2196f3;
+  background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+}
+
+.wkop-milestone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #f5f5f5;
+}
+
+.wkop-milestone-percentage {
+  display: flex;
+  align-items: center;
+}
+
+.wkop-percentage-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.wkop-milestone-status {
+  display: flex;
+  align-items: center;
+}
+
+.wkop-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wkop-status-approved {
+  background: #4caf50;
+  color: white;
+}
+
+.wkop-status-pending {
+  background: #ff9800;
+  color: white;
+}
+
+.wkop-status-rejected {
+  background: #f44336;
+  color: white;
+}
+
+.wkop-status-revision-requested {
+  background: #2196f3;
+  color: white;
+}
+
+.wkop-milestone-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wkop-milestone-description {
+  color: #424242;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0.75rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.wkop-milestone-date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.wkop-milestone-date i {
+  color: #999;
+}
+
+.wkop-approved-date {
+  color: #4caf50;
+}
+
+.wkop-approved-date i {
+  color: #4caf50;
+}
+
+.wkop-milestone-rejection {
+  padding: 1rem;
+  background: #ffebee;
+  border-left: 4px solid #f44336;
+  border-radius: 6px;
+  color: #c62828;
+  line-height: 1.5;
+}
+
+.wkop-milestone-rejection strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #d32f2f;
+}
+
+.wkop-milestone-revision {
+  padding: 1rem;
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  border-radius: 6px;
+  color: #1565c0;
+  line-height: 1.5;
+}
+
+.wkop-milestone-revision strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #1976d2;
+}
+
+.wkop-milestone-image {
+  margin-top: 0.5rem;
+}
+
+.wkop-milestone-image img {
+  width: auto;
+  max-width: 180px;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.wkop-milestone-image img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Lightbox Styles */
+.wkop-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+  cursor: zoom-out;
+}
+
+.wkop-lightbox-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  animation: zoomIn 0.3s ease;
+  cursor: default;
+}
+
+.wkop-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 48px;
+  color: white;
+  cursor: pointer;
+  z-index: 10001;
+  transition: all 0.3s ease;
+  font-weight: 300;
+  line-height: 1;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.wkop-lightbox-close:hover {
+  transform: scale(1.1);
+  color: #ff5252;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ff5252;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wkop-container {
+    padding: 0 1rem;
+  }
+
+  .wkop-page-header h1 {
+    font-size: 2rem;
+  }
+
+  .wkop-project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .wkop-project-header h3 {
+    font-size: 1.25rem;
+  }
+
+  .wkop-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .wkop-form-actions input[type="file"] {
+    margin-bottom: 0.5rem;
+  }
+
+  .wkop-btn-primary {
+    width: 100%;
+  }
+
+  .wkop-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wkop-modal-content {
+    width: 95%;
+    max-height: 95vh;
+  }
+
+  .wkop-modal-header {
+    padding: 1rem;
+  }
+
+  .wkop-modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .wkop-modal-body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wkop-nav-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wkop-nav-link {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .wkop-inspiration-images {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+
+  .wkop-inspiration-images img {
+    height: 80px;
+  }
+}
+
+/* ==================== MILESTONES SECTION ==================== */
+.wkop-milestones-section {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-top: 1px solid var(--border-color);
+}
+
+.wkop-milestones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wkop-milestone-item {
+  background: white;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.wkop-milestone-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Status-based border colors */
+.wkop-milestone-pending {
+  border-left-color: #f59e0b;
+}
+
+.wkop-milestone-approved {
+  border-left-color: #10b981;
+}
+
+.wkop-milestone-rejected {
+  border-left-color: #ef4444;
+}
+
+.wkop-milestone-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.wkop-milestone-percentage {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.wkop-percentage-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+}
+
+.wkop-status-badge {
+  padding: 0.35rem 0.85rem;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.wkop-status-pending {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.wkop-status-approved {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.wkop-status-rejected {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.wkop-milestone-timestamp {
+  color: #6b7280;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.wkop-milestone-description {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.wkop-milestone-description p {
+  color: #374151;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.wkop-milestone-image {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.wkop-milestone-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+.wkop-milestone-image img:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+/* Responsive adjustments for milestones */
+@media (max-width: 768px) {
+  .wkop-milestone-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wkop-milestone-timestamp {
+    margin-top: 0.5rem;
+  }
+
+  .wkop-percentage-badge {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .wkop-status-badge {
+    font-size: 0.75rem;
+  }
+}
+
+/* Revision Request Box Styles */
+.wkop-revision-request-box {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+.wkop-revision-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #92400e;
+  font-size: 1.05rem;
+}
+
+.wkop-revision-icon {
+  font-size: 1.5rem;
+}
+
+.wkop-revision-date {
+  font-size: 0.85rem;
+  color: #78350f;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.wkop-revision-notes {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #f59e0b;
+  margin-bottom: 1rem;
+}
+
+.wkop-revision-notes p {
+  margin: 0.5rem 0;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.wkop-revision-notes p:first-child {
+  color: #92400e;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.wkop-revision-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  border: 1px dashed #f59e0b;
+}
+
+.wkop-revision-hint {
+  color: #92400e;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Revision Resubmit Button */
+.wkop-revision-button-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.wkop-btn-resubmit {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.wkop-btn-resubmit:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+.wkop-btn-resubmit:active {
+  transform: translateY(0);
+}
+
+/* Admin Review Box Styles */
+.wkop-admin-review-box {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border: 2px solid #ef4444;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+}
+
+.wkop-review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  color: #991b1b;
+  font-size: 1.05rem;
+}
+
+.wkop-review-icon {
+  font-size: 1.5rem;
+}
+
+.wkop-admin-review-box p {
+  margin: 0;
+  color: #7f1d1d;
+  line-height: 1.6;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 3px solid #ef4444;
+}
+
+/* Approval Box Styles */
+.wkop-approval-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 1px solid #86efac;
+  border-radius: 8px;
+  color: #166534;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Rejection Box Styles */
+.wkop-rejection-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+}
+
+.wkop-rejection-box strong {
+  color: #991b1b;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.wkop-rejection-box p {
+  margin: 0;
+  color: #7f1d1d;
+  line-height: 1.6;
+}
+
+/* Status badges for new statuses */
+.wkop-status-revision-requested {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  color: #92400e;
+  border: 1px solid #fbbf24;
+}
+
+.wkop-status-under-review {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #991b1b;
+  border: 1px solid #f87171;
+}
+
+/* Milestone card borders for new statuses */
+.wkop-milestone-activity.wkop-milestone-revision-requested {
+  border-left-color: #f59e0b;
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+}
+
+.wkop-milestone-activity.wkop-milestone-under-review {
+  border-left-color: #ef4444;
+  background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+}
+
+/* Review Prompt Section */
+.wkop-review-prompt {
+  margin-top: 32px;
+  padding: 32px;
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 16px;
+  border: 2px solid #fbbf24;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.2);
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wkop-review-prompt-content {
+  text-align: center;
+}
+
+.wkop-review-prompt-content i {
+  font-size: 48px;
+  color: #f59e0b;
+  margin-bottom: 16px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.wkop-review-prompt-content h4 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #92400e;
+  margin: 0 0 12px 0;
+}
+
+.wkop-review-prompt-content p {
+  font-size: 16px;
+  color: #78350f;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.wkop-btn-review {
+  padding: 14px 32px;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
+}
+
+.wkop-btn-review:hover {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.5);
+}

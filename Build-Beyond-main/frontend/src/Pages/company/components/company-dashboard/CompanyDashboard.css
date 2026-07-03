@@ -1,0 +1,439 @@
+/* src/Pages/company/components/company-dashboard/CompanyDashboard.css */
+
+:root {
+  --primary-accent: #004D7A;
+  --primary-accent-hover: #003355;
+  --background-light: #F8F9FA;
+  --content-light: #FFFFFF;
+  --text-primary: #212529;
+  --text-secondary: #6C757D;
+  --text-on-accent: #FFFFFF;
+  --button-secondary-bg: #E9ECEF;
+  --highlight-color: #A06700;
+  --status-success-bg: #D4EDDA;
+  --status-success-text: #155724;
+  --status-warning-bg: #FFF3CD;
+  --status-warning-text: #856404;
+  --status-danger-bg: #F8D7DA;
+  --status-danger-text: #721C24;
+  --card-radius: 12px;
+  --soft-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --progress-bar-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes cdb-progress-animation {
+  0% { width: 0; }
+  100% { width: calc(var(--progress) * 1%); }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cdb-main-container {
+  flex: 1;
+  padding: 3rem 2.5rem;
+}
+
+.cdb-page-title {
+  margin-bottom: 2.5rem;
+  color: var(--primary-accent);
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  border-bottom: 2px solid var(--button-secondary-bg);
+  padding-bottom: 0.5rem;
+}
+
+.cdb-stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.cdb-stat-card {
+  background-color: var(--content-light);
+  border-radius: var(--card-radius);
+  padding: 2rem;
+  border: 1px solid #E0E0E0;
+  box-shadow: var(--soft-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cdb-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.cdb-stat-card h3 {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cdb-stat-card .cdb-stat-value {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.cdb-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+  border-bottom: 1px solid #E0E0E0;
+  padding-bottom: 0.5rem;
+}
+
+.cdb-section-title {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.cdb-view-all a {
+  color: var(--primary-accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 4px 0;
+  transition: color 0.2s ease;
+}
+
+.cdb-view-all a:hover {
+  color: var(--primary-accent-hover);
+  text-decoration: underline;
+}
+
+.cdb-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.8rem;
+}
+
+.cdb-bid-card {
+  background-color: var(--content-light);
+  border-radius: var(--card-radius);
+  padding: 1.8rem;
+  border: 1px solid #D1D5DB;
+  box-shadow: var(--soft-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cdb-bid-card:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-accent);
+}
+
+.cdb-bid-card h3 {
+  margin-bottom: 1.2rem;
+  color: var(--primary-accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed #E0E0E0;
+}
+
+.cdb-bid-info { margin-bottom: 1.5rem; }
+
+.cdb-bid-info p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.cdb-bid-info span:first-child {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.cdb-bid-info span:last-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cdb-bid-info p:nth-last-child(2) span:last-child {
+  color: var(--highlight-color);
+  font-weight: 700;
+}
+
+.cdb-bid-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.cdb-btn {
+  padding: 0.8rem 1.6rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cdb-btn-primary {
+  background-color: var(--primary-accent);
+  color: var(--text-on-accent);
+}
+
+.cdb-btn-primary:hover {
+  background-color: var(--primary-accent-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.cdb-btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--text-primary);
+}
+
+.cdb-btn-secondary:hover {
+  background-color: #D1D5DB;
+}
+
+.cdb-timeline-container {
+  background-color: var(--content-light);
+  border-radius: var(--card-radius);
+  padding: 2.5rem;
+  margin-top: 2.5rem;
+  border: 1px solid #E0E0E0;
+  box-shadow: var(--soft-shadow);
+}
+
+.cdb-timeline-project {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.cdb-timeline-project:last-child { border-bottom: none; }
+
+.cdb-project-info {
+  flex: 1;
+  min-width: 320px;
+}
+
+.cdb-project-info h3 {
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.cdb-project-details {
+  display: flex;
+  margin-bottom: 1.2rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.cdb-project-details p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.cdb-project-details span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cdb-progress-container {
+  background-color: var(--button-secondary-bg);
+  height: 10px;
+  border-radius: 5px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  box-shadow: var(--progress-bar-shadow);
+}
+
+.cdb-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #004D7A 0%, #0077B6 100%);
+  width: 0;
+  animation: cdb-progress-animation 1s ease-out forwards;
+}
+
+.cdb-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.cdb-progress-info span:last-child {
+  color: var(--highlight-color);
+  font-weight: 600;
+}
+
+.cdb-project-status {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-left: auto;
+  background-color: var(--status-success-bg);
+  color: var(--status-success-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--status-success-text);
+}
+
+.status-delayed {
+  background-color: var(--status-warning-bg);
+  color: var(--status-warning-text);
+  border-color: var(--status-warning-text);
+}
+
+.cdb-loading, .cdb-error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* Modal */
+.cdb-bid-review-modal-backdrop {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 1000; opacity: 0; transition: opacity 0.3s ease;
+}
+
+.cdb-bid-review-modal-backdrop.visible { opacity: 1; }
+
+.cdb-bid-review-modal-content {
+  background-color: var(--content-light);
+  border-radius: var(--card-radius);
+  width: 90%; max-width: 800px; max-height: 90vh;
+  display: flex; flex-direction: column;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid #E0E0E0;
+}
+
+.cdb-bid-review-modal-backdrop.visible .cdb-bid-review-modal-content {
+  transform: scale(1);
+}
+
+.cdb-bid-review-modal-header {
+  background-color: #F0F2F5;
+  padding: 1.2rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid #D1D5DB;
+}
+
+.cdb-modal-title {
+  font-size: 1.5rem;
+  color: var(--primary-accent);
+  font-weight: 700;
+}
+
+.cdb-modal-close-btn {
+  background: none; border: none;
+  color: var(--text-secondary);
+  font-size: 2rem;
+  line-height: 1; cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cdb-modal-close-btn:hover { color: var(--text-primary); }
+
+.cdb-bid-review-modal-body { padding: 2rem; overflow-y: auto; }
+
+.cdb-detail-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed #E0E0E0;
+}
+
+.cdb-detail-section:last-child { margin-bottom: 0; border-bottom: none; }
+
+.cdb-detail-section h3 {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+  border-left: 4px solid var(--highlight-color);
+  padding-left: 10px;
+}
+
+.cdb-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem 2rem;
+}
+
+.cdb-detail-grid.cdb-full { grid-template-columns: 1fr; }
+
+.cdb-detail-grid p { color: var(--text-primary); }
+
+.cdb-detail-grid strong {
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.cdb-detail-grid span {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.cdb-site-files-list a {
+  display: block;
+  color: var(--primary-accent);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  padding: 0.25rem 0;
+}
+
+.cdb-site-files-list a:hover {
+  color: var(--primary-accent-hover);
+  text-decoration: underline;
+}
+
+.cdb-bid-review-modal-footer {
+  padding: 1.5rem 2rem;
+  display: flex; justify-content: flex-end; gap: 1rem;
+  border-top: 1px solid #D1D5DB;
+  background-color: var(--background-light);
+  border-radius: 0 0 var(--card-radius) var(--card-radius);
+}

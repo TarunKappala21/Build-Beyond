@@ -1,0 +1,45 @@
+{
+  "query": {
+    "workerId": null,
+    "companyId": "68ba5e733f0415009912252f",
+    "customerId": null,
+    "status": "completed",
+    "type": "milestone_release",
+    "limit": 20,
+    "skip": 0
+  },
+  "find": {
+    "executionTimeMillis": {
+      "before": 0,
+      "after": 1,
+      "improvementPct": null
+    },
+    "totalDocsExamined": {
+      "before": 52,
+      "after": 23,
+      "improvementPct": 55.77
+    },
+    "totalKeysExamined": {
+      "before": 0,
+      "after": 23,
+      "improvementPct": null
+    },
+    "scanRatio": {
+      "before": 3.71,
+      "after": 1.64,
+      "improvementPct": 55.8
+    }
+  },
+  "count": {
+    "executionTimeMillis": {
+      "before": 540.23,
+      "after": 319.888,
+      "improvementPct": 40.79
+    },
+    "totalDocsExamined": {
+      "before": null,
+      "after": null,
+      "improvementPct": null
+    }
+  }
+}

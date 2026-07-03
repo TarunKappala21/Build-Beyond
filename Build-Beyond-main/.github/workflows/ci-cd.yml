@@ -1,0 +1,331 @@
+name: CI-CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+concurrency:
+  group: ci-cd-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend-ci:
+    name: ci-backend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install backend dependencies
+        run: npm ci
+
+      - name: Backend syntax check
+        run: node --check app.js
+
+      - name: Backend SMTP utility syntax check
+        run: |
+          node --check utils/emailService.js
+          node --check scripts/smtp-health-check.js
+
+  backend-test:
+    name: test-backend
+    runs-on: ubuntu-latest
+    needs:
+      - backend-ci
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Install backend dependencies
+        run: npm ci
+
+      - name: Prepare backend test report directory
+        run: mkdir -p test-results
+
+      - name: Run backend tests (JUnit)
+        run: npm run test:junit
+
+      - name: Generate backend HTML test report
+        run: |
+          node ../.github/scripts/generate-junit-html.js \
+            --input test-results/junit.xml \
+            --output test-results/test-report.html \
+            --metadata test-results/summary.json \
+            --title "Backend API Tests"
+
+      - name: Upload backend test report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-test-report
+          path: backend/test-results
+
+  frontend-ci:
+    name: ci-frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Build frontend
+        run: npm run build
+
+  frontend-test:
+    name: test-frontend
+    runs-on: ubuntu-latest
+    needs:
+      - frontend-ci
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Prepare frontend test report directory
+        run: mkdir -p test-results
+
+      - name: Run frontend tests (JUnit)
+        run: npm run test:junit
+
+      - name: Generate frontend HTML test report
+        run: |
+          node ../.github/scripts/generate-junit-html.js \
+            --input test-results/junit.xml \
+            --output test-results/test-report.html \
+            --metadata test-results/summary.json \
+            --title "Frontend UI Tests"
+
+      - name: Upload frontend test report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-test-report
+          path: frontend/test-results
+
+  test-report-summary:
+    name: test-report-summary
+    runs-on: ubuntu-latest
+    needs:
+      - backend-test
+      - frontend-test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download backend report artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: backend-test-report
+          path: artifacts/backend
+
+      - name: Download frontend report artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-test-report
+          path: artifacts/frontend
+
+      - name: Build unified report folder
+        run: |
+          mkdir -p test-reports/backend
+          mkdir -p test-reports/frontend
+          cp artifacts/backend/test-report.html test-reports/backend/test-report.html
+          cp artifacts/frontend/test-report.html test-reports/frontend/test-report.html
+
+      - name: Generate summary index page
+        run: |
+          node .github/scripts/generate-summary-report.js \
+            --backend artifacts/backend/summary.json \
+            --frontend artifacts/frontend/summary.json \
+            --output test-reports/index.html \
+            --generatedAt "${{ github.run_id }} | ${{ github.run_attempt }} | $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+
+      - name: Upload unified test report site
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-report-site
+          path: test-reports
+
+      - name: Add report links to workflow summary
+        run: |
+          echo "## Unit Test Reports" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Download artifact: **unit-test-report-site**" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Open file: index.html (inside the artifact)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Run page: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> "$GITHUB_STEP_SUMMARY"
+
+  deploy:
+    name: deploy-production
+    runs-on: ubuntu-latest
+    needs:
+      - backend-ci
+      - backend-test
+      - frontend-ci
+      - frontend-test
+      - test-report-summary
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - name: Validate deploy hook secrets
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$RENDER_DEPLOY_HOOK_URL" ]; then
+            echo "Missing secret: RENDER_DEPLOY_HOOK_URL"
+            exit 1
+          fi
+          if [ -z "$VERCEL_DEPLOY_HOOK_URL" ]; then
+            echo "Missing secret: VERCEL_DEPLOY_HOOK_URL"
+            exit 1
+          fi
+
+      - name: Trigger Render backend deploy
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          response_file=$(mktemp)
+          status_code=$(curl -sS -o "$response_file" -w "%{http_code}" -X POST "$RENDER_DEPLOY_HOOK_URL")
+          echo "Render deploy hook HTTP status: $status_code"
+
+          if [ "$status_code" -lt 200 ] || [ "$status_code" -ge 300 ]; then
+            echo "Render deploy hook failed. Response body:"
+            cat "$response_file"
+            exit 1
+          fi
+
+          echo "Render deploy hook triggered successfully"
+
+      - name: Wait for backend health check
+        env:
+          BACKEND_HEALTHCHECK_URL: ${{ secrets.BACKEND_HEALTHCHECK_URL }}
+        run: |
+          BACKEND_HEALTHCHECK_URL="${BACKEND_HEALTHCHECK_URL:-https://build-beyond.onrender.com/health}"
+          max_attempts=20
+          sleep_seconds=15
+          attempt=1
+
+          while [ "$attempt" -le "$max_attempts" ]; do
+            status_code=$(curl -sS -o /dev/null -w "%{http_code}" "$BACKEND_HEALTHCHECK_URL")
+            echo "Health check attempt $attempt/$max_attempts - HTTP $status_code"
+
+            if [ "$status_code" -ge 200 ] && [ "$status_code" -lt 300 ]; then
+              echo "Backend is healthy"
+              exit 0
+            fi
+
+            if [ "$attempt" -lt "$max_attempts" ]; then
+              sleep "$sleep_seconds"
+            fi
+            attempt=$((attempt + 1))
+          done
+
+          echo "Backend health check failed after $max_attempts attempts"
+          exit 1
+
+      - name: Determine frontend health check URL
+        id: frontend_health
+        env:
+          FRONTEND_HEALTHCHECK_URL: ${{ secrets.FRONTEND_HEALTHCHECK_URL }}
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          resolved_url="$FRONTEND_HEALTHCHECK_URL"
+
+          # If no explicit health URL is provided, derive host from deploy hook when possible.
+          if [ -z "$resolved_url" ]; then
+            host_from_hook=$(printf '%s' "$VERCEL_DEPLOY_HOOK_URL" | sed -n 's#.*https://\([^/]*\)/api/redeploy/.*#\1#p')
+            if [ -n "$host_from_hook" ]; then
+              resolved_url="https://$host_from_hook"
+            fi
+          fi
+
+          if [ -z "$resolved_url" ]; then
+            echo "Unable to resolve frontend health URL. Set FRONTEND_HEALTHCHECK_URL secret."
+            exit 1
+          fi
+
+          echo "Resolved frontend health check URL: $resolved_url"
+          echo "url=$resolved_url" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger Vercel frontend deploy
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          response_file=$(mktemp)
+          status_code=$(curl -sS -o "$response_file" -w "%{http_code}" -X POST "$VERCEL_DEPLOY_HOOK_URL")
+          echo "Vercel deploy hook HTTP status: $status_code"
+
+          if [ "$status_code" -lt 200 ] || [ "$status_code" -ge 300 ]; then
+            echo "Vercel deploy hook failed. Response body:"
+            cat "$response_file"
+            exit 1
+          fi
+
+          echo "Vercel deploy hook triggered successfully"
+
+      - name: Wait for frontend health check
+        env:
+          FRONTEND_HEALTHCHECK_URL: ${{ steps.frontend_health.outputs.url }}
+        run: |
+          max_attempts=30
+          sleep_seconds=10
+          attempt=1
+
+          while [ "$attempt" -le "$max_attempts" ]; do
+            status_code=$(curl -sS -o /dev/null -w "%{http_code}" "$FRONTEND_HEALTHCHECK_URL")
+            echo "Frontend health attempt $attempt/$max_attempts - HTTP $status_code"
+
+            if [ "$status_code" -ge 200 ] && [ "$status_code" -lt 400 ]; then
+              echo "Frontend is live"
+              exit 0
+            fi
+
+            if [ "$attempt" -lt "$max_attempts" ]; then
+              sleep "$sleep_seconds"
+            fi
+            attempt=$((attempt + 1))
+          done
+
+          echo "Frontend health check failed after $max_attempts attempts"
+          exit 1

@@ -1,0 +1,138 @@
+.project360-page {
+  background: linear-gradient(160deg, #fff7ed 0%, #eef2ff 100%);
+}
+
+.project360-summary-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.project360-payment-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.summary-card.red .summary-accent {
+  background: #ef4444;
+}
+
+.summary-card.indigo .summary-accent {
+  background: #6366f1;
+}
+
+.summary-card.amber .summary-accent {
+  background: #d97706;
+}
+
+.summary-card.rose .summary-accent {
+  background: #f43f5e;
+}
+
+.summary-card.emerald .summary-accent {
+  background: #059669;
+}
+
+.project360-inline-btn {
+  margin-top: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.project360-wide-field {
+  grid-column: 1 / -1;
+}
+
+.project360-file-link {
+  text-decoration: none;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  background: #dbeafe;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.project360-file-link:hover {
+  background: #bfdbfe;
+}
+
+.project360-media-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #64748b;
+}
+
+.project360-media-link {
+  text-decoration: none;
+  color: #b45309;
+  border: 1px solid #fed7aa;
+  background: #ffedd5;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.project360-media-link.success {
+  color: #065f46;
+  border-color: #86efac;
+  background: #dcfce7;
+}
+
+.project360-update-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.project360-update-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project360-update-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.1);
+}
+
+.project360-muted {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.error-state {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+}
+
+.error-state h2 {
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.error-state p {
+  margin: 0 0 16px;
+  color: #64748b;
+}
+
+@media (max-width: 1400px) {
+  .project360-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project360-payment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .project360-summary-grid,
+  .project360-payment-grid,
+  .project360-update-grid {
+    grid-template-columns: 1fr;
+  }
+}

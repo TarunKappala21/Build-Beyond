@@ -1,0 +1,27 @@
+{
+  "label": "company-before",
+  "capturedAt": "2026-04-19T09:39:06.259Z",
+  "query": {
+    "workerId": null,
+    "companyId": "68ba5e733f0415009912252f",
+    "customerId": null,
+    "status": "completed",
+    "type": "milestone_release",
+    "limit": 20,
+    "skip": 0
+  },
+  "find": {
+    "executionTimeMillis": 0,
+    "totalKeysExamined": 0,
+    "totalDocsExamined": 52,
+    "nReturned": 14,
+    "scanRatio": 3.71
+  },
+  "count": {
+    "executionTimeMillis": 540.23,
+    "totalKeysExamined": null,
+    "totalDocsExamined": null,
+    "nReturned": 14,
+    "scanRatio": null
+  }
+}
